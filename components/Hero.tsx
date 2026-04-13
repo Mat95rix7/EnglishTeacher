@@ -97,10 +97,10 @@ export default function Hero() {
 
         {/* Heading */}
         <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
-          <span className="text-white">Master English</span>
+          <span className="text-white">English Sahla</span>
           <br />
           <span className="gradient-text">with </span>
-          <span className="text-white">Confidence</span>
+          <span className="text-white">Khawla</span>
         </h1>
 
         {/* Typewriter */}
