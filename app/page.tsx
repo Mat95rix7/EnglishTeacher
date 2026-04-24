@@ -12,6 +12,7 @@ import Pricing from '@/components/Pricing';
 import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import Register from '@/components/Register';
 
 function AppContent() {
   const { dir } = useI18n();
@@ -19,19 +20,20 @@ function AppContent() {
     <div className="min-h-screen bg-pattern" dir={dir}>
       <Navbar />
       <Hero />
-      <Stats />
+      {/* <Stats /> */}
       <About />
       <Courses />
       <HowItWorks />
       <Reviews />
       <Pricing />
+      <Register />
       <FAQ />
       <Contact />
       <Footer />
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/15552345678"
+        href="https://wa.me/213668387385"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-400 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/50 hover:scale-110 transition-all duration-300"

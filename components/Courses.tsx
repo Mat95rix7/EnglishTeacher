@@ -1,160 +1,89 @@
-import { BookOpen, Briefcase, Trophy, MessageCircle, PenLine, Mic } from 'lucide-react';
+import { Play, Clock, BarChart, Video } from 'lucide-react';
+import { useI18n } from '../lib/i18n';
 
-const courses = [
-  {
-    icon: <MessageCircle size={28} />,
-    emoji: '💬',
-    title: 'Conversational English',
-    subtitle: 'All Levels',
-    description: 'Build real-world speaking skills through live discussions, role-plays, and dynamic conversations. Perfect for daily life and travel.',
-    features: ['Daily life vocabulary', 'Pronunciation coaching', 'Accent reduction', 'Confidence building'],
-    color: 'from-blue-500/20 to-blue-600/5',
-    border: 'border-blue-500/30',
-    tag: 'Most Popular',
-    tagColor: 'bg-blue-500/20 text-blue-300',
-    accent: 'text-blue-400',
-  },
-  {
-    icon: <Briefcase size={28} />,
-    emoji: '💼',
-    title: 'Business English',
-    subtitle: 'Intermediate – Advanced',
-    description: 'Master professional communication — emails, presentations, meetings, and negotiations in English for the workplace.',
-    features: ['Email & report writing', 'Presentations & pitches', 'Meeting & negotiation phrases', 'LinkedIn & CV English'],
-    color: 'from-amber-500/20 to-amber-600/5',
-    border: 'border-amber-500/30',
-    tag: 'Career Booster',
-    tagColor: 'bg-amber-500/20 text-amber-300',
-    accent: 'text-amber-400',
-  },
-  {
-    icon: <Trophy size={28} />,
-    emoji: '🏆',
-    title: 'IELTS / TOEFL Prep',
-    subtitle: 'Intermediate – Advanced',
-    description: 'Structured exam preparation with proven strategies, practice tests, and personalized feedback to hit your target score.',
-    features: ['Mock exams & scoring', 'Reading & listening skills', 'Writing band improvement', 'Speaking test coaching'],
-    color: 'from-purple-500/20 to-purple-600/5',
-    border: 'border-purple-500/30',
-    tag: 'Exam Focused',
-    tagColor: 'bg-purple-500/20 text-purple-300',
-    accent: 'text-purple-400',
-  },
-  {
-    icon: <BookOpen size={28} />,
-    emoji: '📚',
-    title: 'General English',
-    subtitle: 'Beginner – Advanced',
-    description: 'A comprehensive approach to grammar, vocabulary, reading and writing. Build a solid foundation or fill in the gaps.',
-    features: ['Grammar mastery', 'Vocabulary expansion', 'Reading comprehension', 'Creative writing'],
-    color: 'from-green-500/20 to-green-600/5',
-    border: 'border-green-500/30',
-    tag: 'All Levels',
-    tagColor: 'bg-green-500/20 text-green-300',
-    accent: 'text-green-400',
-  },
-  {
-    icon: <Mic size={28} />,
-    emoji: '🎙️',
-    title: 'Pronunciation & Accent',
-    subtitle: 'All Levels',
-    description: 'Sound like a native speaker! Focus on phonetics, intonation, rhythm, and clear articulation to be understood everywhere.',
-    features: ['IPA phonetics basics', 'Minimal pairs practice', 'British vs. American accent', 'Intonation & rhythm'],
-    color: 'from-pink-500/20 to-pink-600/5',
-    border: 'border-pink-500/30',
-    tag: 'Speak Clearly',
-    tagColor: 'bg-pink-500/20 text-pink-300',
-    accent: 'text-pink-400',
-  },
-  {
-    icon: <PenLine size={28} />,
-    emoji: '✍️',
-    title: 'Academic Writing',
-    subtitle: 'Intermediate – Advanced',
-    description: 'Essays, dissertations, research papers — improve your academic English writing with structured feedback and coaching.',
-    features: ['Essay structure', 'Academic vocabulary', 'Citation & referencing', 'Thesis & argument building'],
-    color: 'from-orange-500/20 to-orange-600/5',
-    border: 'border-orange-500/30',
-    tag: 'Academic',
-    tagColor: 'bg-orange-500/20 text-orange-300',
-    accent: 'text-orange-400',
-  },
+const courseKeys = [
+  { titleKey: 'courses.beginner.title', descKey: 'courses.beginner.desc', levelKey: 'courses.beginner', duration: '12', lessons: 24, thumbnail: 'https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&w=600', color: 'from-emerald-400 to-teal-500' },
+  { titleKey: 'courses.intermediate.title', descKey: 'courses.intermediate.desc', levelKey: 'courses.intermediate', duration: '16', lessons: 32, thumbnail: 'https://images.pexels.com/photos/261909/pexels-photo-261909.jpeg?auto=compress&cs=tinysrgb&w=600', color: 'from-lavender-400 to-lavender-600' },
+  { titleKey: 'courses.advanced.title', descKey: 'courses.advanced.desc', levelKey: 'courses.advanced', duration: '12', lessons: 24, thumbnail: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600', color: 'from-amber-400 to-orange-500' },
+  { titleKey: 'courses.toefl.title', descKey: 'courses.toefl.desc', levelKey: 'courses.exams', duration: '8', lessons: 16, thumbnail: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600', color: 'from-rose-400 to-pink-500' },
+  { titleKey: 'courses.business.title', descKey: 'courses.business.desc', levelKey: 'courses.professional', duration: '10', lessons: 20, thumbnail: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600', color: 'from-sky-400 to-blue-500' },
+  { titleKey: 'courses.conversation.title', descKey: 'courses.conversation.desc', levelKey: 'courses.allLevels', duration: '6', lessons: 12, thumbnail: 'https://images.pexels.com/photos/4145354/pexels-photo-4145354.jpeg?auto=compress&cs=tinysrgb&w=600', color: 'from-lavender-300 to-lavender-500' },
 ];
 
 export default function Courses() {
-  return (
-    <section id="courses" className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0d1428] to-[#0a0f1e]" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl" />
+  const { t } = useI18n();
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm font-medium mb-4">
-            What I Teach
-          </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-            My <span className="gradient-text">Courses</span>
+  return (
+    <section id="courses" className="relative section-padding bg-gradient-to-b from-cream via-beige-50 to-cream">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lavender-200 to-transparent" />
+
+      <div className="max-w-7xl mx-auto">
+        {/* Section header */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-lavender-100/80 text-lavender-700 rounded-full text-sm font-medium mb-6">
+            <Video className="w-4 h-4" />
+            {t('courses.badge')}
+          </div>
+          <h2 className="heading-display text-4xl md:text-5xl font-bold text-beige-900 mb-6">
+            {t('courses.title1')}{' '}
+            <span className="text-lavender-500">{t('courses.titleHighlight')}</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            From total beginners to advanced speakers — every course is tailored to <em>your</em> goals, pace, and learning style.
+          <p className="text-beige-600 text-lg leading-relaxed">
+            {t('courses.description')}
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {courses.map((course, i) => (
+        {/* Course cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {courseKeys.map((course, index) => (
             <div
-              key={i}
-              className={`relative group bg-gradient-to-br ${course.color} border ${course.border} rounded-3xl p-6 hover:scale-[1.02] card-glow transition-all duration-300 cursor-pointer`}
+              key={course.titleKey}
+              className="group glass-card overflow-hidden hover:shadow-xl hover:shadow-lavender-100/40 transition-all duration-500 hover:-translate-y-1"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Tag */}
-              <span className={`absolute top-5 right-5 text-xs font-bold px-3 py-1 rounded-full ${course.tagColor}`}>
-                {course.tag}
-              </span>
+              {/* Thumbnail */}
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={course.thumbnail}
+                  alt={t(course.titleKey)}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-beige-900/50 via-transparent to-transparent" />
 
-              {/* Icon */}
-              <div className={`w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-4 ${course.accent} group-hover:scale-110 transition-transform`}>
-                <span className="text-2xl">{course.emoji}</span>
+                {/* Play button overlay */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-14 h-14 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                    <Play className="w-6 h-6 text-lavender-600 ml-0.5" />
+                  </div>
+                </div>
+
+                {/* Level badge */}
+                <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold text-white bg-gradient-to-r ${course.color}`}>
+                  {t(course.levelKey)}
+                </div>
               </div>
 
-              {/* Title */}
-              <h3 className="text-xl font-bold text-white mb-1" style={{ fontFamily: 'Playfair Display, serif' }}>
-                {course.title}
-              </h3>
-              <p className={`text-sm font-medium mb-3 ${course.accent}`}>{course.subtitle}</p>
-              <p className="text-gray-400 text-sm leading-relaxed mb-5">{course.description}</p>
-
-              {/* Features */}
-              <ul className="space-y-2 mb-6">
-                {course.features.map((f, j) => (
-                  <li key={j} className="flex items-center gap-2 text-gray-300 text-sm">
-                    <span className={`w-1.5 h-1.5 rounded-full bg-current ${course.accent} shrink-0`} />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              {/* CTA */}
-              <a
-                href="#contact"
-                className={`block text-center py-3 rounded-2xl font-semibold text-sm border ${course.border} ${course.accent} hover:bg-white/10 transition-all duration-200`}
-              >
-                Book This Course →
-              </a>
+              {/* Content */}
+              <div className="p-6 space-y-4">
+                <h3 className="heading-display text-lg font-semibold text-beige-800 group-hover:text-lavender-600 transition-colors">
+                  {t(course.titleKey)}
+                </h3>
+                <p className="text-sm text-beige-500 leading-relaxed">
+                  {t(course.descKey)}
+                </p>
+                <div className="flex items-center gap-4 pt-2 border-t border-beige-100">
+                  <div className="flex items-center gap-1.5 text-xs text-beige-500">
+                    <Clock className="w-3.5 h-3.5" />
+                    {course.duration} {t('courses.weeks')}
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-beige-500">
+                    <BarChart className="w-3.5 h-3.5" />
+                    {course.lessons} {t('courses.lessons')}
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
-        </div>
-
-        {/* Bottom note */}
-        <div className="text-center mt-12">
-          <p className="text-gray-400 text-base">
-            Not sure which course is right for you?{' '}
-            <a href="#contact" className="text-amber-400 font-semibold hover:underline">
-              Book a free 30-min consultation
-            </a>{' '}
-            and let's find the perfect fit together.
-          </p>
         </div>
       </div>
     </section>

@@ -12,13 +12,13 @@ const translations: Translations = {
   'nav.register': { en: 'Register', ar: 'التسجيل' },
   'nav.contact': { en: 'Contact', ar: 'اتصل بنا' },
   'nav.signup': { en: 'Sign Up', ar: 'سجل الآن' },
-  'nav.title': { en: 'English sahla with khawla', ar: 'الإنجليزية سهلة مع خولة' },
+  'nav.title': { en: 'English Sahla with Khawla', ar: 'الإنجليزية سهلة مع خولة' },
 
   // Hero
   'hero.badge': { en: 'Online English lessons', ar: 'دروس إنجليزية عبر الإنترنت' },
-  'hero.title1': { en: 'Learn English with', ar: 'تعلّم الإنجليزية بـ' },
-  'hero.titleHighlight': { en: 'confidence', ar: 'ثقة' },
-  'hero.title2': { en: 'and passion', ar: 'وشغف' },
+  'hero.title1': { en: 'Learn English with', ar: 'تعلّم الإنجليزية مع' },
+  'hero.titleHighlight': { en: 'Khawla', ar: 'خولة' },
+  'hero.title2': { en: ' ', ar: ' ' },
   'hero.description': {
     en: 'Personalized video lessons with an experienced teacher. Progress at your own pace, whether you are a beginner or advanced.',
     ar: 'دروس مخصصة عبر الفيديو مع معلمة ذات خبرة. تقدّم بالسرعة التي تناسبك، سواء كنت مبتدئاً أو متقدماً.',
