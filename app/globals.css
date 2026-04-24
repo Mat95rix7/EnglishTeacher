@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 /* ─── CSS Variables ─────────────────────────────────────────────────────────── */
 @theme {
   --color-background: #f7f3ed;
@@ -167,4 +168,10 @@ h1, h2, h3, h4 {
     background: linear-gradient(90deg, #7c3aed, #a855f7);
     border-radius: 999px;
   }
+}
+
+.imperial-script-regular {
+  font-family: "Imperial Script", cursive;
+  font-weight: 600;
+  font-style: normal;
 }

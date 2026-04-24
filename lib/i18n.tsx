@@ -7,6 +7,7 @@ type Translations = Record<string, Record<string, string>>;
 const translations: Translations = {
   // Navbar
   'nav.home': { en: 'Home', ar: 'الرئيسية' },
+  'nav.about': { en: 'About', ar: 'من أنا' },
   'nav.courses': { en: 'Courses', ar: 'الدورات' },
   'nav.testimonials': { en: 'Testimonials', ar: 'آراء الطلاب' },
   'nav.register': { en: 'Register', ar: 'التسجيل' },
@@ -30,6 +31,44 @@ const translations: Translations = {
   'hero.available': { en: 'Available now', ar: 'متاح الآن' },
   'hero.english': { en: 'English', ar: 'الإنجليزية' },
   'hero.allLevels': { en: 'All levels', ar: 'جميع المستويات' },
+
+  // Stats
+  'stats.title': { en: 'Results that', ar: 'نتائج' },
+  'stats.titleHighlight': { en: 'speak for themselves', ar: 'تتحدث عن نفسها' },
+  'stats.countries': { en: 'Countries Represented', ar: 'دول ممثَّلة' },
+  'stats.years': { en: 'Years of Teaching', ar: 'سنوات من التدريس' },
+  'stats.students': { en: 'Happy Students', ar: 'طالب سعيد' },
+  'stats.passRate': { en: 'Exam Pass Rate', ar: 'نسبة النجاح في الامتحانات' },
+  'stats.hours': { en: 'Hours Taught Online', ar: 'ساعة تدريس أونلاين' },
+  'stats.rating': { en: 'Average Review Score', ar: 'متوسط تقييم الطلاب' },
+
+  // ── À ajouter dans translations{} de i18n.tsx, après le bloc // Stats ──
+
+  // About
+  'about.badge':          { en: 'About Me',                              ar: 'من أنا'                                  },
+  'about.title1':         { en: 'Meet Your',                             ar: 'تعرّف على'                               },
+  'about.titleHighlight': { en: 'English Teacher',                       ar: 'معلمتك للإنجليزية'                       },
+  'about.hi':             { en: "Hi, I'm",                               ar: 'مرحباً، أنا'                             },
+  'about.name':           { en: 'Khawla',                                ar: 'خولة'                                    },
+  'about.description1':   {
+    en: "I'm a passionate English teacher with over 8 years of experience teaching students from all over the world. I hold a Master's in English Linguistics from Oxford and am fully CELTA & DELTA certified.",
+    ar: 'أنا معلمة إنجليزية شغوفة بخبرة تزيد على 8 سنوات في تدريس الطلاب من جميع أنحاء العالم. أحمل ماجستيراً في اللغويات الإنجليزية من أكسفورد وحاصلة على شهادتي CELTA وDELTA.',
+  },
+  'about.description2':   {
+    en: 'My teaching philosophy? English should be fun, practical, and empowering. Through live Zoom sessions, interactive exercises and personalized feedback, I help my students go from hesitant speakers to confident communicators.',
+    ar: 'فلسفتي في التدريس؟ يجب أن تكون اللغة الإنجليزية ممتعة وعملية ومُمكِّنة. من خلال جلسات Zoom المباشرة والتمارين التفاعلية والتغذية الراجعة الشخصية، أساعد طلابي على التحوّل من متحدثين مترددين إلى متواصلين واثقين.',
+  },
+  'about.floatingRating': { en: '4.9/5 Rating',                          ar: '4.9/5 تقييم'                             },
+  'about.floatingOxford': { en: 'Oxford Graduate',                       ar: 'خريجة أكسفورد'                           },
+  'about.floatingZoom':   { en: 'Live on Zoom',                          ar: 'مباشر على Zoom'                          },
+  'about.badge1':         { en: "MA in English Linguistics – Oxford",    ar: 'ماجستير في اللغويات الإنجليزية – أكسفورد' },
+  'about.badge2':         { en: 'CELTA & DELTA Certified Teacher',       ar: 'معلمة حاصلة على CELTA وDELTA'            },
+  'about.badge3':         { en: 'Taught in 30+ countries online',        ar: 'درّست في أكثر من 30 دولة عبر الإنترنت'   },
+  'about.badge4':         { en: 'Google Certified Educator',             ar: 'معلمة معتمدة من Google'                  },
+  'about.skill1':         { en: 'Conversational English',                ar: 'الإنجليزية المحادثاتية'                   },
+  'about.skill2':         { en: 'Business English',                      ar: 'إنجليزية الأعمال'                         },
+  'about.skill3':         { en: 'IELTS / TOEFL Prep',                   ar: 'تحضير IELTS / TOEFL'                     },
+  'about.skill4':         { en: 'Grammar & Writing',                     ar: 'القواعد والكتابة'                         },
 
   // Courses
   'courses.badge': { en: 'Our programs', ar: 'برامجنا' },
@@ -110,7 +149,7 @@ const translations: Translations = {
   'testimonials.4.name': { en: 'Lucas Petit', ar: 'لوكاس بوتيت' },
   'testimonials.4.role': { en: 'IELTS preparation student', ar: 'طالب تحضير IELTS' },
   'testimonials.4.text': {
-    en: 'I scored 7.5 on the IELTS thanks to Claire\'s intensive preparation. The exam simulations were very close to real conditions.',
+    en: "I scored 7.5 on the IELTS thanks to Claire's intensive preparation. The exam simulations were very close to real conditions.",
     ar: 'حصلت على 7.5 في الـ IELTS بفضل التحضير المكثف مع كلير. محاكاة الامتحان كانت قريبة جداً من الظروف الحقيقية.',
   },
   'testimonials.5.name': { en: 'Amelie Roux', ar: 'أميلي رو' },
@@ -122,7 +161,7 @@ const translations: Translations = {
   'testimonials.6.name': { en: 'Pierre Lefevre', ar: 'بيير ليففر' },
   'testimonials.6.role': { en: 'Retired traveler', ar: 'متقاعد مسافر' },
   'testimonials.6.text': {
-    en: 'At 65, I\'m learning English for my travels. Claire is patient and encouraging. I finally feel comfortable traveling!',
+    en: "At 65, I'm learning English for my travels. Claire is patient and encouraging. I finally feel comfortable traveling!",
     ar: 'في سن 65، أتعلم الإنجليزية لأسفاري. كلير صبورة ومشجعة. أشعر أخيراً بالراحة أثناء السفر!',
   },
 

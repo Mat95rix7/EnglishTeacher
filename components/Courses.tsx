@@ -14,7 +14,7 @@ export default function Courses() {
   const { t } = useI18n();
 
   return (
-    <section id="courses" className="relative section-padding bg-gradient-to-b from-cream via-beige-50 to-cream">
+    <section id="courses" className="relative section-padding bg-[#f7f3ed]">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lavender-200 to-transparent" />
 
       <div className="max-w-7xl mx-auto">
