@@ -1,10 +1,9 @@
 'use client';
 
-import { I18nProvider, useI18n } from '../lib/i18n';
+import { useI18n } from '../lib/i18n';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
-import Stats from '@/components/Stats';
 import Courses from '@/components/Courses';
 import HowItWorks from '@/components/HowItWorks';
 import Reviews from '@/components/Reviews';
@@ -14,20 +13,19 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Register from '@/components/Register';
 
-function AppContent() {
+export default function App() {
   const { dir } = useI18n();
   return (
     <div className="min-h-screen bg-pattern" dir={dir}>
       <Navbar />
       <Hero />
-      {/* <Stats /> */}
       <About />
       <Courses />
-      <HowItWorks />
-      <Reviews />
-      <Pricing />
-      <Register />
-      <FAQ />
+      {/* <HowItWorks /> */}
+      {/* <Reviews /> */}
+      {/* <Pricing /> */}
+      {/* <Register /> */}
+      {/* <FAQ /> */}
       <Contact />
       <Footer />
 
@@ -44,13 +42,5 @@ function AppContent() {
         </svg>
       </a>
     </div>
-  );
-}
-
-export default function App() {
-  return (
-    <I18nProvider>
-      <AppContent />
-    </I18nProvider>
   );
 }

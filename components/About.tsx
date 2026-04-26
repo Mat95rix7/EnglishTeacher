@@ -1,5 +1,6 @@
 import { CheckCircle2, GraduationCap, Globe2, Heart } from 'lucide-react';
 import { useI18n } from '../lib/i18n';
+import Image from 'next/image';
 
 export default function About() {
   const { t } = useI18n();
@@ -44,7 +45,7 @@ export default function About() {
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-gray-800" style={{ fontFamily: "'Nunito', sans-serif" }}>
             {t('about.title1')}{' '}
-            <span className="bg-gradient-to-r from-[#8B5CF6] via-[#EC4899] to-[#F59E0B] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#8B5CF6] via-[#EC4899] to-[#F59E0B] bg-clip-text text-transparent">
               {t('about.titleHighlight')}
             </span>
           </h2>
@@ -55,7 +56,7 @@ export default function About() {
           {/* ── Gauche : photo ── */}
           <div className="relative flex justify-center">
 
-            <div className="absolute w-80 h-80 rounded-full bg-gradient-to-br from-[#EDE9FE] via-[#FCE7F3] to-[#FEF9C3] blur-2xl opacity-70" />
+            <div className="absolute w-80 h-80 rounded-full bg-linear-to-br from-[#EDE9FE] via-[#FCE7F3] to-[#FEF9C3] blur-2xl opacity-70" />
 
             <div
               className="absolute w-80 h-80 rounded-full border-2 border-dashed border-[#C4B5FD]/40"
@@ -67,15 +68,18 @@ export default function About() {
             />
 
             <div className="relative z-10 w-72 h-72 rounded-full overflow-hidden border-4 border-white shadow-2xl shadow-purple-200/50">
-              <img
+              <Image
                 src="/images/teacher.jpg"
                 alt="English with Khawla"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="288px"
+                priority
               />
             </div>
 
             <div
-              className="absolute top-4 -right-2 flex items-center gap-2 bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg shadow-purple-300/40"
+              className="absolute top-4 -right-2 flex items-center gap-2 bg-linear-to-r from-[#8B5CF6] to-[#EC4899] text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg shadow-purple-300/40"
               style={{ animation: 'float-bg 3.5s ease-in-out 0s infinite alternate' }}
             >
               ⭐ {t('about.floatingRating')}
@@ -103,7 +107,7 @@ export default function About() {
               style={{ fontFamily: "'Nunito', 'Playfair Display', serif" }}
             >
               {t('about.hi')}{' '}
-              <span className="bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#8B5CF6] to-[#EC4899] bg-clip-text text-transparent">
                 {t('about.name')}
               </span>
             </h3>

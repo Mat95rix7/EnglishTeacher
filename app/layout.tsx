@@ -1,32 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Poppins, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import {
+  geistSans, geistMono, inter, playfair,
+  nunito, poppins, cairo, notoNaskh,
+  amiri, imperial, reemKufi, lemonada,
+  tajawal, almarai,
+} from "../lib/fonts";
+import HtmlLangSync from "@/components/Htmllangsync";
+import { I18nProvider } from "@/lib/i18n";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const inter = Inter({
-  variable: "--font-sans",
-  subsets: ["latin"],
-});
-
-const poppins = Poppins({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["700"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "English Sahla With Khawla",
@@ -41,9 +23,29 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${poppins.variable} ${playfair.variable} h-full antialiased`}
+      className={`
+        ${geistSans.variable}
+        ${geistMono.variable}
+        ${inter.variable}
+        ${poppins.variable}
+        ${playfair.variable}
+        ${nunito.variable}
+        ${cairo.variable}
+        ${notoNaskh.variable}
+        ${amiri.variable}
+        ${imperial.variable}
+        ${reemKufi.variable}
+        ${lemonada.variable}
+        ${tajawal.variable}
+        ${almarai.variable}
+        h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <I18nProvider>
+          <HtmlLangSync />
+          {children}
+        </I18nProvider>
+      </body>
     </html>
   );
 }

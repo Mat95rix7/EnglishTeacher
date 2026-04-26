@@ -1,3 +1,4 @@
+'use client';
 import { createContext, useContext, useState, useCallback, ReactNode } from 'react';
 
 export type Lang = 'en' | 'ar';
@@ -7,7 +8,7 @@ type Translations = Record<string, Record<string, string>>;
 const translations: Translations = {
   // Navbar
   'nav.home': { en: 'Home', ar: 'الرئيسية' },
-  'nav.about': { en: 'About', ar: 'من أنا' },
+  'nav.about': { en: 'About me', ar: 'من أنا' },
   'nav.courses': { en: 'Courses', ar: 'الدورات' },
   'nav.testimonials': { en: 'Testimonials', ar: 'آراء الطلاب' },
   'nav.register': { en: 'Register', ar: 'التسجيل' },
@@ -131,7 +132,7 @@ const translations: Translations = {
   'testimonials.1.name': { en: 'Marie Dupont', ar: 'ماري دوبون' },
   'testimonials.1.role': { en: 'Master student', ar: 'طالبة ماجستير' },
   'testimonials.1.text': {
-    en: 'Claire is an exceptional teacher. In 6 months, I went from A1 to B2. Her pedagogy is clear, patient, and truly adapted to my needs.',
+    en: 'Khawla is an exceptional teacher. In 6 months, I went from A1 to B2. Her pedagogy is clear, patient, and truly adapted to my needs.',
     ar: 'كلير معلمة استثنائية. في 6 أشهر، انتقلت من المستوى A1 إلى B2. أساليبها التربوية واضحة وصبورة ومكيّفة حقاً لاحتياجاتي.',
   },
   'testimonials.2.name': { en: 'Thomas Bernard', ar: 'توماس برنار' },
@@ -202,22 +203,87 @@ const translations: Translations = {
   },
   'register.error': { en: 'An error occurred. Please try again.', ar: 'حدث خطأ. يرجى المحاولة مرة أخرى.' },
 
-  // Contact
-  'contact.badge': { en: 'Contact', ar: 'اتصل بنا' },
-  'contact.title1': { en: 'A question?', ar: 'لديك سؤال؟' },
-  'contact.titleHighlight': { en: 'Write me', ar: 'اكتب لي' },
-  'contact.description': {
-    en: 'Feel free to contact me for any questions about courses, pricing, or availability.',
-    ar: 'لا تتردد في التواصل معي لأي سؤال حول الدورات أو الأسعار أو المواعيد المتاحة.',
+// ─── Remplace / fusionne ces clés dans ton fichier i18n existant ───────────
+
+  // ── Contact ──────────────────────────────────────────────────────────────
+  'contact.badge':            { en: 'Get In Touch',                          ar: 'تواصل معي' },
+  'contact.title1':           { en: 'Ready to',                              ar: 'هل أنت مستعد' },
+  'contact.titleHighlight':   { en: 'Start Learning?',                       ar: 'لتبدأ التعلم؟' },
+  'contact.description':      {
+    en: "Fill in the form and I'll get back to you within 24 hours to schedule your free consultation. Let's begin your English journey!",
+    ar: 'املأ النموذج وسأعود إليك خلال 24 ساعة لتحديد موعد استشارتك المجانية. لنبدأ رحلتك في اللغة الإنجليزية',
   },
-  'contact.email': { en: 'Email', ar: 'البريد الإلكتروني' },
-  'contact.responseTime': { en: 'Reply within 24h', ar: 'رد خلال 24 ساعة' },
-  'contact.phone': { en: 'Phone', ar: 'الهاتف' },
-  'contact.hours': { en: 'Mon-Fri, 9am-6pm', ar: 'الإثنين-الجمعة، 9ص-6م' },
-  'contact.online': { en: 'Online classes', ar: 'دروس عبر الإنترنت' },
-  'contact.viaZoom': { en: 'Via Zoom / Google Meet', ar: 'عبر Zoom / Google Meet' },
-  'contact.flexible': { en: 'Flexible', ar: 'مرن' },
-  'contact.sendEmail': { en: 'Send an email', ar: 'أرسل بريداً إلكترونياً' },
+
+  // Info cards
+  'contact.emailTitle':       { en: 'Email Me',                              ar: 'راسلني' },
+  'contact.emailValue':       { en: 'khawla@englishwithkhawla.com',          ar: 'khawla@englishwithkhawla.com' },
+  'contact.emailSub':         { en: 'Reply within 24 hours',                 ar: 'رد خلال 24 ساعة' },
+  'contact.whatsappTitle':    { en: 'WhatsApp',                              ar: 'واتساب' },
+  'contact.whatsappValue':    { en: '+213668387385',                     ar: '+213668387385' },
+  'contact.whatsappSub':      { en: 'For quick questions',                   ar: 'للأسئلة السريعة' },
+  'contact.hoursTitle':       { en: 'Available Hours',                       ar: 'ساعات التوفر' },
+  'contact.hoursValue':       { en: 'Satn – Thu: 8am – 8pm UTC',              ar: 'السبت – الخميس: 8ص – 8م' },
+  'contact.hoursSub':         { en: 'Flexible for all time zones',           ar: 'مرن لجميع المناطق الزمنية' },
+
+  // Socials
+  'contact.findOnline':       { en: 'Find Me Online',                        ar: 'تجدني على الإنترنت' },
+
+  // Availability
+  'contact.acceptingTitle':   { en: 'Currently Accepting Students',          ar: 'أقبل طلاباً حالياً' },
+  'contact.acceptingDesc':    {
+    en: 'Limited spots available this month. Book early to secure your preferred time slot!',
+    ar: 'أماكن محدودة هذا الشهر. احجز مبكراً لضمان موعدك المفضل!',
+  },
+
+  // Form
+  'contact.formTitle':        { en: 'Book Your Free Lesson ✨',               ar: 'احجز درسك المجاني ✨' },
+  'contact.labelName':        { en: 'Full Name',                             ar: 'الاسم الكامل' },
+  'contact.placeholderName':  { en: 'Your name',                             ar: 'اسمك' },
+  'contact.labelEmail':       { en: 'Email Address',                         ar: 'البريد الإلكتروني' },
+  'contact.placeholderEmail': { en: 'your@email.com',                        ar: 'بريدك@example.com' },
+  'contact.labelLevel':       { en: 'Current English Level',                 ar: 'مستواك الحالي في الإنجليزية' },
+  'contact.placeholderLevel': { en: 'Select level...',                       ar: 'اختر المستوى...' },
+  'contact.labelGoal':        { en: 'I Want To Learn',                       ar: 'أريد أن أتعلم' },
+  'contact.placeholderGoal':  { en: 'Select course...',                      ar: 'اختر الدورة...' },
+  'contact.labelSchedule':    { en: 'Best Time for Classes',                 ar: 'أفضل وقت للدروس' },
+  'contact.placeholderSchedule': {
+    en: 'e.g. Weekday mornings, weekends, evenings UTC+2...',
+    ar: 'مثل: صباح أيام الأسبوع، عطلة نهاية الأسبوع، مساءً',
+  },
+  'contact.labelMessage':     { en: 'Tell Me About Your Goals',              ar: 'أخبرني عن أهدافك' },
+  'contact.placeholderMessage': {
+    en: 'What do you want to achieve? Any specific challenges with English?',
+    ar: 'ماذا تريد أن تحقق؟ هل لديك تحديات معينة في اللغة الإنجليزية؟',
+  },
+  'contact.submitBtn':        { en: 'Send Message & Book Free Lesson',       ar: 'أرسل الرسالة واحجز الدرس المجاني' },
+  'contact.sending':          { en: 'Sending...',                            ar: 'جارٍ الإرسال...' },
+  'contact.privacy':          {
+    en: '🔒 Your information is safe. No spam, ever. I reply within 24 hours.',
+    ar: '🔒 معلوماتك في أمان. لا رسائل مزعجة أبداً. أرد خلال 24 ساعة.',
+  },
+
+  // Success state
+  'contact.successTitle':     { en: 'Message Sent! 🎉',                      ar: 'تم الإرسال! 🎉' },
+  'contact.successDesc':      {
+    en: "Thank you for reaching out! I'll review your details and be in touch within 24 hours to schedule your free lesson.",
+    ar: 'شكراً على تواصلك! سأراجع بياناتك وأتواصل معك خلال 24 ساعة لتحديد موعد درسك المجاني.',
+  },
+  'contact.successSub':       { en: 'See you in class! 📚',                  ar: 'أراك في الدرس! 📚' },
+
+  // Levels & goals (dropdown options)
+  'contact.level.a1':         { en: 'A1 – Beginner',                        ar: 'A1 – مبتدئ' },
+  'contact.level.a2':         { en: 'A2 – Elementary',                      ar: 'A2 – ابتدائي' },
+  'contact.level.b1':         { en: 'B1 – Intermediate',                    ar: 'B1 – متوسط' },
+  'contact.level.b2':         { en: 'B2 – Upper Intermediate',              ar: 'B2 – متوسط متقدم' },
+  'contact.level.c1':         { en: 'C1 – Advanced',                        ar: 'C1 – متقدم' },
+  'contact.level.c2':         { en: 'C2 – Proficiency',                     ar: 'C2 – إتقان' },
+  'contact.goal.conv':        { en: 'Conversational English',                ar: 'الإنجليزية المحادثاتية' },
+  'contact.goal.business':    { en: 'Business English',                      ar: 'إنجليزية الأعمال' },
+  'contact.goal.ielts':       { en: 'IELTS / TOEFL Prep',                   ar: 'التحضير لـ IELTS / TOEFL' },
+  'contact.goal.pronunciation':{ en: 'Pronunciation',                       ar: 'النطق' },
+  'contact.goal.writing':     { en: 'Academic Writing',                      ar: 'الكتابة الأكاديمية' },
+  'contact.goal.general':     { en: 'General English',                       ar: 'الإنجليزية العامة' },
+  'contact.goal.other':       { en: 'Other',                                 ar: 'أخرى' },
 
   // Footer
   'footer.description': {

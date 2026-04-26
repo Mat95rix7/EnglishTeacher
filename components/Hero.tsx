@@ -1,3 +1,5 @@
+'use client';
+
 import { Play, Globe, Users, Star } from 'lucide-react';
 import { useI18n } from '../lib/i18n';
 import Image from 'next/image';
@@ -38,12 +40,12 @@ const BG_ELEMENTS = [
 ];
 
 const facts = [
-  { emoji: '🌍',  number: '45+',    labelKey: 'stats.countries' },
-  { emoji: '📅',  number: '8',      labelKey: 'stats.years'     },
-  { emoji: '👩‍🎓', number: '500+',  labelKey: 'stats.students'  },
-  { emoji: '🎯',  number: '97%',    labelKey: 'stats.passRate'  },
-  { emoji: '⏱️', number: '3 000+', labelKey: 'stats.hours'     },
-  { emoji: '⭐',  number: '4.9/5',  labelKey: 'stats.rating'    },
+  { emoji: '🌍',  number: '45+',   labelKey: 'stats.countries' },
+  { emoji: '📅',  number: '8',     labelKey: 'stats.years'     },
+  { emoji: '👩‍🎓', number: '500+', labelKey: 'stats.students'  },
+  { emoji: '🎯',  number: '97%',   labelKey: 'stats.passRate'  },
+  { emoji: '⏱️', number: '3000+', labelKey: 'stats.hours'     },
+  { emoji: '⭐',  number: '4.9/5', labelKey: 'stats.rating'    },
 ];
 
 export default function Hero() {
@@ -108,7 +110,6 @@ export default function Hero() {
               fontWeight: (el as any).bold ? 900 : undefined,
               opacity: 0.15,
               animation: `float-bg ${el.dur} ease-in-out ${el.delay} infinite alternate`,
-              fontFamily: (el as any).bold ? "'Nunito', sans-serif" : undefined,
               lineHeight: 1,
               filter: 'blur(0.3px)',
             }}
@@ -128,13 +129,10 @@ export default function Hero() {
                 {t('hero.badge')}
               </div>
 
-              <h1
-                className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08] animate-fade-in-up"
-                style={{ fontFamily: "'Nunito', 'Fredoka One', sans-serif" }}
-              >
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08] animate-fade-in-up">
                 {t('hero.title1')}{' '}
                 <span className="relative inline-block">
-                  <span className="bg-linear-to-r from-[#8B5CF6] via-[#EC4899] to-[#F59E0B] bg-clip-text text-transparent">
+                  <span className="bg-linear-to-r from-[#8B5CF6] via-[#EC4899] to-[#F59E0B] bg-clip-text text-transparent imperial-script-regular">
                     {t('hero.titleHighlight')}
                   </span>
                   <svg className="absolute -bottom-2 left-0 w-full" height="10" viewBox="0 0 200 10" fill="none" preserveAspectRatio="none">
@@ -225,6 +223,7 @@ export default function Hero() {
                   src="/Logo.jpeg"
                   alt="English Sahla with Khawla"
                   fill
+                  sizes="340px"
                   priority
                   className="object-cover rounded-full shadow-2xl shadow-purple-300/50 border-4 border-white"
                 />
@@ -270,10 +269,7 @@ export default function Hero() {
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
 
               <div className="text-center mb-14">
-                <h2
-                  className="text-3xl md:text-4xl font-extrabold text-gray-800"
-                  style={{ fontFamily: "'Nunito', sans-serif" }}
-                >
+                <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800">
                   {t('stats.title')}{' '}
                   <span className="bg-linear-to-r from-[#8B5CF6] to-[#EC4899] bg-clip-text text-transparent">
                     {t('stats.titleHighlight')}
@@ -290,10 +286,7 @@ export default function Hero() {
                     <div className="text-4xl mb-3 group-hover:scale-125 transition-transform duration-300">
                       {fact.emoji}
                     </div>
-                    <div
-                      className="text-3xl md:text-4xl font-black mb-1 bg-linear-to-r from-[#8B5CF6] to-[#EC4899] bg-clip-text text-transparent"
-                      style={{ fontFamily: "'Nunito', 'Playfair Display', serif" }}
-                    >
+                    <div className="text-3xl md:text-4xl font-black mb-1 bg-linear-to-r from-[#8B5CF6] to-[#EC4899] bg-clip-text text-transparent">
                       {fact.number}
                     </div>
                     <div className="text-gray-500 text-xs font-medium leading-tight">

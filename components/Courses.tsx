@@ -1,5 +1,6 @@
 import { Play, Clock, BarChart, Video } from 'lucide-react';
 import { useI18n } from '../lib/i18n';
+import Image from 'next/image';
 
 const courseKeys = [
   { titleKey: 'courses.beginner.title', descKey: 'courses.beginner.desc', levelKey: 'courses.beginner', duration: '12', lessons: 24, thumbnail: 'https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&w=600', color: 'from-emerald-400 to-teal-500' },
@@ -15,7 +16,7 @@ export default function Courses() {
 
   return (
     <section id="courses" className="relative section-padding bg-[#f7f3ed]">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lavender-200 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-lavender-200 to-transparent" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
@@ -43,12 +44,15 @@ export default function Courses() {
             >
               {/* Thumbnail */}
               <div className="relative h-48 overflow-hidden">
-                <img
-                  src={course.thumbnail}
-                  alt={t(course.titleKey)}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-beige-900/50 via-transparent to-transparent" />
+                <Image
+                    src={course.thumbnail}
+                    alt={t(course.titleKey)}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={false}
+                  />
+                <div className="absolute inset-0 bg-linear-to-t from-beige-900/50 via-transparent to-transparent" />
 
                 {/* Play button overlay */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -58,7 +62,7 @@ export default function Courses() {
                 </div>
 
                 {/* Level badge */}
-                <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold text-white bg-gradient-to-r ${course.color}`}>
+                <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold text-white bg-linear-to-r ${course.color}`}>
                   {t(course.levelKey)}
                 </div>
               </div>
