@@ -6,8 +6,8 @@ import { useI18n } from '../lib/i18n';
 import { socials } from '../lib/data';
 
 export default function Contact() {
-  const { t, locale } = useI18n();
-  const isRTL = locale === 'ar';
+  const { t, dir } = useI18n();
+  const isRTL = dir === 'rtl';
 
   const [form, setForm] = useState({
     name: '', email: '', level: '', goal: '', message: '', schedule: '',
@@ -41,46 +41,32 @@ export default function Contact() {
     { icon: <Clock size={22} />,         titleKey: 'contact.hoursTitle',    valueKey: 'contact.hoursValue',    subKey: 'contact.hoursSub',    iconBg: 'bg-[#FCE7F3]', iconColor: 'text-[#BE185D]' },
   ];
 
-  // const socials = [
-  //   { label: 'Instagram', emoji: '📸' },
-  //   { label: 'LinkedIn',  emoji: '💼' },
-  //   { label: 'YouTube',   emoji: '▶️' },
-  //   { label: 'TikTok',    emoji: '🎵' },
-  // ];
+  // Styles inline RTL — évite les classes Tailwind dynamiques non détectées par JIT
+  const sRow:  React.CSSProperties = { flexDirection: isRTL ? 'row-reverse' : 'row' };
+  const sText: React.CSSProperties = { textAlign:     isRTL ? 'right'       : 'left' };
 
-  // Classes communes pour tous les champs
-  const inputCls = `
-    w-full bg-[#f7f3ed] border border-[#E9E1F8] rounded-xl px-4 py-3
-    text-gray-800 placeholder-gray-400 text-sm
-    focus:outline-none focus:border-[#8B5CF6] focus:ring-2 focus:ring-[#EDE9FE]
-    transition-all
-    rtl:text-right ltr:text-left
-  `;
+  const inputCls = [
+    'w-full bg-[#f7f3ed] border border-[#E9E1F8] rounded-xl px-4 py-3',
+    'text-gray-800 placeholder-gray-400 text-sm',
+    'focus:outline-none focus:border-[#8B5CF6] focus:ring-2 focus:ring-[#EDE9FE]',
+    'transition-all',
+  ].join(' ');
 
   return (
-    /*
-      dir="rtl" / "ltr" sur la section racine :
-      Tailwind's rtl: / ltr: variants s'activent automatiquement
-      selon la valeur de dir du plus proche ancêtre.
-    */
     <section
       id="contact"
-      dir={isRTL ? 'rtl' : 'ltr'}
+      dir={dir}
       className="py-24 relative overflow-hidden bg-[#f7f3ed]"
     >
-
-      {/* ── Glows ── */}
+      {/* Glows */}
       <div className="absolute -top-40 -left-40 w-[520px] h-[520px] rounded-full bg-[#C4B5FD]/18 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-[#F9A8D4]/14 blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full bg-[#FDE68A]/10 blur-3xl pointer-events-none" />
 
-      {/* ── Grille de points ── */}
-      <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
-        style={{ backgroundImage: 'radial-gradient(circle, #8B5CF6 1px, transparent 1px)', backgroundSize: '30px 30px' }}
-      />
+      {/* Grille de points */}
+      <div className="absolute inset-0 opacity-[0.035] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #8B5CF6 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
 
-      {/* ── Cercles pointillés ── */}
+      {/* Cercles pointillés */}
       <svg className="absolute end-[-60px] top-1/2 -translate-y-1/2 w-[400px] h-[400px] opacity-[0.06] hidden lg:block pointer-events-none" viewBox="0 0 400 400" fill="none">
         <circle cx="200" cy="200" r="190" stroke="#8B5CF6" strokeWidth="2.5" strokeDasharray="12 9" />
         <circle cx="200" cy="200" r="155" stroke="#EC4899" strokeWidth="1.5" strokeDasharray="6 12" opacity="0.5" />
@@ -91,7 +77,7 @@ export default function Contact() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* ── Header ── */}
+        {/* Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#EDE9FE] border border-[#C4B5FD]/50 text-[#7C3AED] text-sm font-semibold mb-4">
             {t('contact.badge')}
@@ -105,105 +91,67 @@ export default function Contact() {
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">{t('contact.description')}</p>
         </div>
 
-        {/*
-          Grille principale :
-          - LTR : info cards à gauche, form à droite
-          - RTL : Tailwind inverse automatiquement l'ordre visuel
-                  grâce à `rtl:` — pas besoin de flex-row-reverse manuel
-        */}
         <div className="grid lg:grid-cols-5 gap-12 items-start">
 
-          {/* ── Info cards ── */}
+          {/* Info cards */}
           <div className="lg:col-span-2 space-y-4">
 
             {infoCards.map((item, i) => (
               <div
                 key={i}
-                className="
-                  flex items-start gap-4
-                  ltr:flex-row rtl:flex-row-reverse
-                  bg-white/70 backdrop-blur-sm
-                  border border-[#E9E1F8]
-                  rounded-2xl p-5
-                  hover:border-[#C4B5FD] hover:shadow-sm
-                  transition-all duration-300
-                "
+                className="flex items-start gap-4 bg-white/70 backdrop-blur-sm border border-[#E9E1F8] rounded-2xl p-5 hover:border-[#C4B5FD] hover:shadow-sm transition-all duration-300"
+                style={sRow}
               >
-                {/* Icône */}
-                <div
-                  className={`
-                    w-11 h-11 rounded-xl
-                    ${item.iconBg}
-                    flex items-center justify-center
-                    ${item.iconColor}
-                    shrink-0
-                  `}
-                >
+                <div className={`w-11 h-11 rounded-xl ${item.iconBg} flex items-center justify-center ${item.iconColor} shrink-0`}>
                   {item.icon}
                 </div>
-
-                {/* Texte */}
-                <div className="rtl:text-right ltr:text-left">
+                <div className="flex-1" style={sText}>
                   <div className="text-gray-400 text-xs font-medium uppercase tracking-wider mb-1">
                     {t(item.titleKey)}
                   </div>
-
                   <div className="text-gray-800 font-semibold text-sm">
                     {t(item.valueKey)}
                   </div>
-
                   <div className="text-gray-400 text-xs mt-0.5">
                     {t(item.subKey)}
                   </div>
                 </div>
               </div>
             ))}
+
             {/* Socials */}
             <div className="bg-white/70 backdrop-blur-sm border border-[#E9E1F8] rounded-2xl p-5">
-              <div className="text-gray-400 text-xs font-medium uppercase tracking-wider mb-4 rtl:text-right ltr:text-left">
+              <div className="text-gray-400 text-xs font-medium uppercase tracking-wider mb-4" style={sText}>
                 {t('contact.findOnline')}
               </div>
-                <div className="flex gap-3 rtl:flex-row-reverse">
-                    {Object.values(socials).map((s) => (
-                      <a
-                        key={s.label}
-                        href={s.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={s.label}
-                        className="
-                          flex-1 flex flex-col items-center gap-1 py-3 rounded-xl
-                          bg-[#EDE9FE] text-[#5B21B6]
-                          border border-[#C4B5FD]/60
-                          shadow-sm
-                          transition-all duration-300
-                          hover:bg-[#DDD6FE]
-                          hover:shadow-md
-                          hover:text-[#4C1D95]
-                          focus:outline-none focus:ring-2 focus:ring-[#C4B5FD]
-                        "
-                      >
-                        <span className="text-lg">{s.icon}</span>
-                        <span>{s.label}</span>
-                      </a>
-                    ))}
-                  </div>
+              <div className="flex gap-3" style={sRow}>
+                {Object.values(socials).map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="flex-1 flex flex-col items-center gap-1 py-3 rounded-xl bg-[#EDE9FE] text-[#5B21B6] border border-[#C4B5FD]/60 shadow-sm transition-all duration-300 hover:bg-[#DDD6FE] hover:shadow-md hover:text-[#4C1D95] focus:outline-none focus:ring-2 focus:ring-[#C4B5FD]"
+                  >
+                    <span className="text-lg">{s.icon}</span>
+                    <span>{s.label}</span>
+                  </a>
+                ))}
+              </div>
             </div>
 
             {/* Availability */}
             <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
-              {/* flex naturel : en RTL le point vert passe automatiquement à droite */}
-              <div className="flex items-center justify-center gap-2 mb-2 ">
+              <div className="flex items-center justify-center gap-2 mb-2" style={sRow}>
                 <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shrink-0" />
                 <span className="text-green-700 font-semibold text-sm">{t('contact.acceptingTitle')}</span>
               </div>
-              <p className="text-green-600 text-sm rtl:text-right ltr:text-left">
-                {t('contact.acceptingDesc')}
-              </p>
+              <p className="text-green-600 text-sm" style={sText}>{t('contact.acceptingDesc')}</p>
             </div>
           </div>
 
-          {/* ── Formulaire ── */}
+          {/* Formulaire */}
           <div className="lg:col-span-3">
             {submitted ? (
               <div className="bg-green-50 border border-green-200 rounded-3xl p-12 text-center">
@@ -219,36 +167,37 @@ export default function Contact() {
                 onSubmit={handleSubmit}
                 className="bg-white/70 backdrop-blur-sm border border-[#E9E1F8] rounded-3xl p-8 space-y-5 shadow-sm"
               >
-                <h3
-                  className="text-xl font-bold text-gray-800 mb-2 rtl:text-right ltr:text-left"
-                >
+                <h3 className="text-xl font-bold text-gray-800 mb-2" style={sText}>
                   {t('contact.formTitle')}
                 </h3>
 
                 {/* Name + Email */}
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-gray-500 text-sm mb-1.5 font-medium rtl:text-right ltr:text-left">
+                    <label className="block text-gray-500 text-sm mb-1.5 font-medium" style={sText}>
                       {t('contact.labelName')} *
                     </label>
                     <input
                       type="text" name="name" required
                       value={form.name} onChange={handleChange}
                       placeholder={t('contact.placeholderName')}
+                      dir={dir}
+                      style={sText}
                       className={inputCls}
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-500 text-sm mb-1.5 font-medium rtl:text-right ltr:text-left">
+                    <label className="block text-gray-500 text-sm mb-1.5 font-medium" style={sText}>
                       {t('contact.labelEmail')} *
                     </label>
-                    {/* Email toujours LTR (adresses email sont LTR universellement) */}
+                    {/* email : toujours ltr pour la saisie, alignement suit dir */}
                     <input
                       type="email" name="email" required
                       value={form.email} onChange={handleChange}
                       placeholder={t('contact.placeholderEmail')}
-                      className={inputCls}
                       dir="ltr"
+                      style={sText}
+                      className={inputCls}
                     />
                   </div>
                 </div>
@@ -256,24 +205,26 @@ export default function Contact() {
                 {/* Level + Goal */}
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-gray-500 text-sm mb-1.5 font-medium rtl:text-right ltr:text-left">
+                    <label className="block text-gray-500 text-sm mb-1.5 font-medium" style={sText}>
                       {t('contact.labelLevel')}
                     </label>
                     <select
                       name="level" value={form.level} onChange={handleChange}
-                      className={inputCls + ' appearance-none'}
+                      dir={dir} style={sText}
+                      className={inputCls + ' appearance-none cursor-pointer'}
                     >
                       <option value="">{t('contact.placeholderLevel')}</option>
                       {levels.map(k => <option key={k} value={t(k)}>{t(k)}</option>)}
                     </select>
                   </div>
                   <div>
-                    <label className="block text-gray-500 text-sm mb-1.5 font-medium rtl:text-right ltr:text-left">
+                    <label className="block text-gray-500 text-sm mb-1.5 font-medium" style={sText}>
                       {t('contact.labelGoal')}
                     </label>
                     <select
                       name="goal" value={form.goal} onChange={handleChange}
-                      className={inputCls + ' appearance-none'}
+                      dir={dir} style={sText}
+                      className={inputCls + ' appearance-none cursor-pointer'}
                     >
                       <option value="">{t('contact.placeholderGoal')}</option>
                       {goals.map(k => <option key={k} value={t(k)}>{t(k)}</option>)}
@@ -283,26 +234,28 @@ export default function Contact() {
 
                 {/* Schedule */}
                 <div>
-                  <label className="block text-gray-500 text-sm mb-1.5 font-medium rtl:text-right ltr:text-left">
+                  <label className="block text-gray-500 text-sm mb-1.5 font-medium" style={sText}>
                     {t('contact.labelSchedule')}
                   </label>
                   <input
                     type="text" name="schedule"
                     value={form.schedule} onChange={handleChange}
                     placeholder={t('contact.placeholderSchedule')}
+                    dir={dir} style={sText}
                     className={inputCls}
                   />
                 </div>
 
                 {/* Message */}
                 <div>
-                  <label className="block text-gray-500 text-sm mb-1.5 font-medium rtl:text-right ltr:text-left">
+                  <label className="block text-gray-500 text-sm mb-1.5 font-medium" style={sText}>
                     {t('contact.labelMessage')} *
                   </label>
                   <textarea
                     name="message" required rows={4}
                     value={form.message} onChange={handleChange}
                     placeholder={t('contact.placeholderMessage')}
+                    dir={dir} style={sText}
                     className={inputCls + ' resize-none'}
                   />
                 </div>
@@ -310,8 +263,8 @@ export default function Contact() {
                 {/* Submit */}
                 <button
                   type="submit" disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-bold text-white text-base shadow-lg shadow-purple-300/40 transition-all duration-300 hover:scale-[1.02] active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
-                  style={{ background: 'linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%)' }}
+                  className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-bold text-white text-base shadow-lg shadow-purple-300/40 transition-all duration-300 hover:scale-[1.02] active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
+                  style={{ background: 'linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%)', ...sRow }}
                 >
                   {loading ? (
                     <>
@@ -320,14 +273,13 @@ export default function Contact() {
                     </>
                   ) : (
                     <>
-                      {/* rtl:rotate-180 : la flèche Send pointe vers la gauche en arabe */}
-                      <Send size={18} className="rtl:rotate-180 transition-transform" />
+                      <Send size={18} style={{ transform: isRTL ? 'rotate(180deg)' : 'none' }} />
                       {t('contact.submitBtn')}
                     </>
                   )}
                 </button>
 
-                <p className="text-center text-gray-400 text-xs">{t('contact.privacy')}</p>
+                <p className="text-gray-400 text-xs text-center">{t('contact.privacy')}</p>
               </form>
             )}
           </div>
