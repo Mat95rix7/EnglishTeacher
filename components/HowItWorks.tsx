@@ -1,127 +1,177 @@
-import { CalendarCheck, Video, ClipboardList, TrendingUp } from 'lucide-react';
+'use client';
 
-const steps = [
-  {
-    step: '01',
-    icon: <CalendarCheck size={32} />,
-    title: 'Book a Free Consultation',
-    description: 'Fill in the contact form to schedule your free 30-minute discovery call. We\'ll discuss your goals, current level, and create your personalised learning plan.',
-    color: 'from-amber-500 to-amber-600',
-    glow: 'shadow-amber-500/30',
-  },
-  {
-    step: '02',
-    icon: <ClipboardList size={32} />,
-    title: 'Receive Your Custom Plan',
-    description: 'I\'ll design a tailor-made curriculum based on your needs — with materials, exercises, and a realistic timeline to reach your goal.',
-    color: 'from-blue-500 to-blue-600',
-    glow: 'shadow-blue-500/30',
-  },
-  {
-    step: '03',
-    icon: <Video size={32} />,
-    title: 'Learn Live via Zoom',
-    description: 'Join interactive 1-on-1 or group lessons on Zoom, Google Meet, or Skype. Interactive whiteboards, screen sharing & recorded sessions included.',
-    color: 'from-purple-500 to-purple-600',
-    glow: 'shadow-purple-500/30',
-  },
-  {
-    step: '04',
-    icon: <TrendingUp size={32} />,
-    title: 'Track Your Progress',
-    description: 'After each lesson you get detailed feedback, homework, and a progress report. Watch your English improve week by week — measurably and confidently.',
-    color: 'from-green-500 to-green-600',
-    glow: 'shadow-green-500/30',
-  },
-];
+import { CalendarCheck, Video, ClipboardList, TrendingUp } from 'lucide-react';
+import { useI18n } from '../lib/i18n';
 
 const platforms = [
-  { name: 'Zoom', emoji: '🎥', bg: 'bg-blue-600/20 border-blue-500/30' },
-  { name: 'Google Meet', emoji: '📹', bg: 'bg-green-600/20 border-green-500/30' },
-  { name: 'Skype', emoji: '💻', bg: 'bg-cyan-600/20 border-cyan-500/30' },
-  { name: 'WhatsApp', emoji: '📱', bg: 'bg-emerald-600/20 border-emerald-500/30' },
-  { name: 'Google Classroom', emoji: '🏫', bg: 'bg-yellow-600/20 border-yellow-500/30' },
-  { name: 'Notion', emoji: '📓', bg: 'bg-gray-600/20 border-gray-500/30' },
+  { nameKey: 'Zoom',             emoji: '🎥', bg: 'bg-blue-50   border-blue-200   text-blue-700'     },
+  { nameKey: 'Google Meet',      emoji: '📹', bg: 'bg-green-50  border-green-200  text-green-700'    },
+  { nameKey: 'Skype',            emoji: '💻', bg: 'bg-cyan-50   border-cyan-200   text-cyan-700'     },
+  { nameKey: 'WhatsApp',         emoji: '📱', bg: 'bg-emerald-50 border-emerald-200 text-emerald-700'},
+  { nameKey: 'Google Classroom', emoji: '🏫', bg: 'bg-yellow-50 border-yellow-200 text-yellow-800'  },
+  { nameKey: 'Notion',           emoji: '📓', bg: 'bg-gray-50   border-gray-200   text-gray-700'    },
 ];
 
 export default function HowItWorks() {
-  return (
-    <section id="how-it-works" className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0f1e] to-[#0d1428]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-3xl" />
+  const { t, dir } = useI18n();
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  const steps = [
+    {
+      step: '01',
+      icon: <CalendarCheck size={28} />,
+      titleKey: 'hiw.step1.title',
+      descKey:  'hiw.step1.desc',
+      iconClass: 'from-amber-400 to-amber-600 shadow-amber-400/40',
+      delay: '0.05s',
+    },
+    {
+      step: '02',
+      icon: <ClipboardList size={28} />,
+      titleKey: 'hiw.step2.title',
+      descKey:  'hiw.step2.desc',
+      iconClass: 'from-blue-400 to-blue-600 shadow-blue-400/40',
+      delay: '0.15s',
+    },
+    {
+      step: '03',
+      icon: <Video size={28} />,
+      titleKey: 'hiw.step3.title',
+      descKey:  'hiw.step3.desc',
+      iconClass: 'from-violet-400 to-violet-600 shadow-violet-400/40',
+      delay: '0.25s',
+    },
+    {
+      step: '04',
+      icon: <TrendingUp size={28} />,
+      titleKey: 'hiw.step4.title',
+      descKey:  'hiw.step4.desc',
+      iconClass: 'from-emerald-400 to-emerald-600 shadow-emerald-400/40',
+      delay: '0.35s',
+    },
+  ];
+
+  return (
+    <section
+      id="how-it-works"
+      dir={dir}
+      className="relative py-24 overflow-hidden bg-[#f7f3ed]"
+    >
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle, #8B5CF6 1px, transparent 1px)',
+          backgroundSize: '30px 30px',
+        }}
+      />
+
+      {/* Glows */}
+      <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-[#C4B5FD]/20 blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-[-60px] w-64 h-64 rounded-full bg-[#F9A8D4]/15 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-[-80px] left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-[#FDE68A]/12 blur-3xl pointer-events-none" />
+
+      {/* Dashed decorative circles */}
+      <svg
+        className="absolute right-[-60px] top-1/2 -translate-y-1/2 w-72 h-72 opacity-[0.06] hidden lg:block pointer-events-none"
+        viewBox="0 0 320 320"
+        fill="none"
+      >
+        <circle cx="160" cy="160" r="155" stroke="#8B5CF6" strokeWidth="2" strokeDasharray="12 9" />
+        <circle cx="160" cy="160" r="130" stroke="#EC4899" strokeWidth="1.2" strokeDasharray="5 12" opacity=".5" />
+      </svg>
+
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm font-medium mb-4">
-            How It Works
+        <div className="text-center mb-14">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#EDE9FE] border border-[#C4B5FD]/50 text-[#7C3AED] text-sm font-semibold mb-4">
+            ✦ {t('hiw.badge')}
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-            Start Learning in{' '}
-            <span className="gradient-text">4 Simple Steps</span>
+          <h2
+            className="text-4xl md:text-5xl font-black text-[#1a1a2e] mb-4 leading-tight"
+          >
+            {t('hiw.title1')}{' '}
+            <span className="bg-linear-to-r from-[#8B5CF6] via-[#EC4899] to-[#F59E0B] bg-clip-text text-transparent">
+              {t('hiw.titleHighlight')}
+            </span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Getting started is easy. Your first lesson is just a few clicks away.
+          <p className="text-gray-500 text-lg max-w-xl mx-auto">
+            {t('hiw.description')}
           </p>
         </div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid sm:grid-cols-2 gap-5 mb-14">
           {steps.map((step, i) => (
-            <div key={i} className="relative group">
-              {/* Connector line (desktop) */}
-              {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-white/10 to-transparent z-0" />
-              )}
+            <div
+              key={i}
+              className="relative bg-white/70 backdrop-blur-sm border border-[#C4B5FD]/30 rounded-3xl p-6
+                        hover:border-[#C4B5FD]/70 hover:shadow-xl hover:shadow-purple-100/60
+                        hover:-translate-y-1 transition-all duration-300"
+              style={{ animationDelay: step.delay }}
+            >
+              {/* Step number watermark — côté extérieur selon dir */}
+              <div
+                className="absolute top-3 end-4 text-5xl font-black text-violet-500/[0.07] select-none"
+              >
+                {step.step}
+              </div>
 
-              <div className="relative z-10 bg-white/5 border border-white/10 rounded-3xl p-6 hover:border-amber-500/30 hover:bg-white/8 card-glow transition-all duration-300 h-full">
-                {/* Step number */}
-                <div className="text-5xl font-black text-white/5 absolute top-4 right-4 select-none" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  {step.step}
-                </div>
-
-                {/* Icon */}
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white mb-5 shadow-xl ${step.glow} group-hover:scale-110 transition-transform`}>
+              {/* Icon + Title */}
+              <div className="flex items-center gap-3 mb-4">
+                <div
+                  className={`w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl bg-linear-to-br ${step.iconClass}
+                              flex items-center justify-center text-white shadow-lg`}
+                >
                   {step.icon}
                 </div>
-
-                <h3 className="text-lg font-bold text-white mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  {step.title}
+                <h3 className="text-base sm:text-lg font-bold text-[#1a1a2e]">
+                  {t(step.titleKey)}
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  {step.description}
-                </p>
               </div>
+
+              {/* Description */}
+              <p className="text-gray-500 text-sm leading-relaxed">
+                {t(step.descKey)}
+              </p>
             </div>
           ))}
         </div>
 
         {/* Platforms */}
-        <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-white mb-2">Tools & Platforms I Use</h3>
-          <p className="text-gray-500 text-sm">Everything you need, all in one learning experience</p>
+        <div className="text-center mb-4">
+          <h3
+            className="text-2xl font-bold text-[#1a1a2e] mb-1"
+          >
+            {t('hiw.platforms.title')}
+          </h3>
+          <p className="text-gray-400 text-sm mb-5">{t('hiw.platforms.sub')}</p>
         </div>
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex flex-wrap justify-center gap-3 mb-14">
           {platforms.map((p, i) => (
             <div
               key={i}
-              className={`flex items-center gap-2 px-5 py-3 rounded-full border ${p.bg} text-white font-medium text-sm hover:scale-105 transition-transform`}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-full border text-sm font-semibold hover:scale-105 transition-transform ${p.bg}`}
             >
               <span>{p.emoji}</span>
-              {p.name}
+              {p.nameKey}
             </div>
           ))}
         </div>
 
         {/* Guarantee */}
-        <div className="mt-16 text-center bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-amber-500/10 border border-amber-500/20 rounded-3xl p-8">
+        <div className="bg-gradient-to-r from-[#EDE9FE] via-[#FCE7F3] to-[#FEF9C3] border border-[#C4B5FD]/30 rounded-3xl p-10 text-center">
           <div className="text-4xl mb-4">🛡️</div>
-          <h3 className="text-2xl font-bold text-white mb-3">100% Satisfaction Guarantee</h3>
-          <p className="text-gray-400 max-w-xl mx-auto">
-            Not happy with your first paid lesson? I'll refund it — no questions asked. 
-            I'm that confident you'll love learning with me.
+          <h3
+            className="text-2xl font-bold text-[#1a1a2e] mb-3"
+          >
+            {t('hiw.guarantee.title')}
+          </h3>
+          <p className="text-gray-500 max-w-md mx-auto text-sm leading-relaxed">
+            {t('hiw.guarantee.desc')}
           </p>
         </div>
+
       </div>
     </section>
   );

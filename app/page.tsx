@@ -21,8 +21,8 @@ export default function App() {
       <Hero />
       <About />
       <Courses />
-      {/* <HowItWorks /> */}
-      {/* <Reviews /> */}
+      <HowItWorks />
+      <Reviews />
       {/* <Pricing /> */}
       {/* <Register /> */}
       {/* <FAQ /> */}

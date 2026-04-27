@@ -98,7 +98,7 @@ export default function Pricing() {
 
               {/* Plan info */}
               <div className="text-4xl mb-4">{plan.emoji}</div>
-              <h3 className="text-2xl font-black text-white mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h3 className="text-2xl font-black text-white mb-2">
                 {plan.name}
               </h3>
               <p className="text-gray-400 text-sm mb-6">{plan.description}</p>

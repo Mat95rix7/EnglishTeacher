@@ -43,7 +43,7 @@ export default function About() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#EDE9FE] border border-[#C4B5FD]/50 text-[#7C3AED] text-sm font-semibold mb-4">
             {t('about.badge')}
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-800" style={{ fontFamily: "'Nunito', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-black text-gray-800">
             {t('about.title1')}{' '}
             <span className="bg-linear-to-r from-[#8B5CF6] via-[#EC4899] to-[#F59E0B] bg-clip-text text-transparent">
               {t('about.titleHighlight')}
@@ -104,7 +104,6 @@ export default function About() {
           <div>
             <h3
               className="text-3xl font-black text-gray-800 mb-4"
-              style={{ fontFamily: "'Nunito', 'Playfair Display', serif" }}
             >
               {t('about.hi')}{' '}
               <span className="bg-linear-to-r from-[#8B5CF6] to-[#EC4899] bg-clip-text text-transparent">

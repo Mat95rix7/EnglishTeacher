@@ -15,13 +15,16 @@ export default function Courses() {
   const { t } = useI18n();
 
   return (
-    <section id="courses" className="relative section-padding bg-[#f7f3ed]">
+    <section id="courses" className="relative py-24 overflow-hidden bg-[#f7f3ed]">
+      
+      {/* dir={dir} */}
+      
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-lavender-200 to-transparent" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-lavender-100/80 text-lavender-700 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#EDE9FE] border border-[#C4B5FD]/50 text-[#7C3AED] rounded-full text-sm font-medium mb-6">
             <Video className="w-4 h-4" />
             {t('courses.badge')}
           </div>

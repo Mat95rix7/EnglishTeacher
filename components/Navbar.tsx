@@ -9,8 +9,8 @@ const navLinks = [
   { labelKey: 'nav.home', href: '#hero', emoji: '🏠' },
   { labelKey: 'nav.about', href: '#about', emoji: '👩‍🏫' },
   { labelKey: 'nav.courses', href: '#courses', emoji: '📚' },
-  { labelKey: 'nav.testimonials', href: '#testimonials', emoji: '💬' },
-  { labelKey: 'nav.register', href: '#register', emoji: '✍️' },
+  { labelKey: 'nav.howItWorks', href: '#how-it-works', emoji: '👤' },
+  { labelKey: 'nav.reviews', href: '#reviews', emoji: '💬' },
   { labelKey: 'nav.contact', href: '#contact', emoji: '📩' },
 ];
 

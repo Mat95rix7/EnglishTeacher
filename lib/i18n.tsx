@@ -10,7 +10,8 @@ const translations: Translations = {
   'nav.home': { en: 'Home', ar: 'الرئيسية' },
   'nav.about': { en: 'About me', ar: 'من أنا' },
   'nav.courses': { en: 'Courses', ar: 'الدورات' },
-  'nav.testimonials': { en: 'Testimonials', ar: 'آراء الطلاب' },
+  'nav.howItWorks': { en: 'How it works', ar: 'كيف يعمل' },
+  'nav.reviews': { en: 'Reviews', ar: 'آراء الطلاب' },
   'nav.register': { en: 'Register', ar: 'التسجيل' },
   'nav.contact': { en: 'Contact', ar: 'اتصل بنا' },
   'nav.signup': { en: 'Sign Up', ar: 'سجل الآن' },
@@ -119,52 +120,88 @@ const translations: Translations = {
     ar: 'ورش محادثة لتحسين نطقك وطلاقتك الشفهية.',
   },
 
-  // Testimonials
-  'testimonials.badge': { en: 'Testimonials', ar: 'آراء الطلاب' },
-  'testimonials.title1': { en: 'What my', ar: 'ماذا يقول' },
-  'testimonials.titleHighlight': { en: 'students', ar: 'طلابي' },
-  'testimonials.title2': { en: 'say', ar: '' },
-  'testimonials.description': {
-    en: 'Over 500 students have trusted my methods. Discover their testimonials.',
-    ar: 'أكثر من 500 طالب وثقوا بأساليبي. اكتشف آراءهم.',
-  },
+  // How It Works
+'hiw.badge':              { en: 'How It Works',                    ar: 'كيف يعمل' },
+'hiw.title1':             { en: 'Start Learning in',               ar: 'ابدأ التعلم في' },
+'hiw.titleHighlight':     { en: '4 Simple Steps',                  ar: '4 خطوات بسيطة' },
+'hiw.description':        {
+  en: 'Getting started is easy. Your first lesson is just a few clicks away.',
+  ar: 'البداية سهلة. درسك الأول على بُعد نقرات قليلة.',
+},
 
-  'testimonials.1.name': { en: 'Marie Dupont', ar: 'ماري دوبون' },
-  'testimonials.1.role': { en: 'Master student', ar: 'طالبة ماجستير' },
-  'testimonials.1.text': {
-    en: 'Khawla is an exceptional teacher. In 6 months, I went from A1 to B2. Her pedagogy is clear, patient, and truly adapted to my needs.',
-    ar: 'كلير معلمة استثنائية. في 6 أشهر، انتقلت من المستوى A1 إلى B2. أساليبها التربوية واضحة وصبورة ومكيّفة حقاً لاحتياجاتي.',
-  },
-  'testimonials.2.name': { en: 'Thomas Bernard', ar: 'توماس برنار' },
-  'testimonials.2.role': { en: 'Software Engineer', ar: 'مهندس برمجيات' },
-  'testimonials.2.text': {
-    en: 'Thanks to the Business English course, I landed an international position. The interview simulations gave me incredible confidence.',
-    ar: 'بفضل دورة إنجليزية الأعمال، حصلت على منصب دولي. محاكاة المقابلات منحتني ثقة لا تصدق.',
-  },
-  'testimonials.3.name': { en: 'Sophie Martin', ar: 'صوفي مارتن' },
-  'testimonials.3.role': { en: 'High school teacher', ar: 'أستاذة في الثانوية' },
-  'testimonials.3.text': {
-    en: 'The conversation classes are exactly what I needed. The atmosphere is relaxed and you progress without realizing it. I highly recommend!',
-    ar: 'دروس المحادثة هي بالضبط ما احتجته. الأجواء مريحة وتتقدم دون أن تشعر. أنصح بها بشدة!',
-  },
-  'testimonials.4.name': { en: 'Lucas Petit', ar: 'لوكاس بوتيت' },
-  'testimonials.4.role': { en: 'IELTS preparation student', ar: 'طالب تحضير IELTS' },
-  'testimonials.4.text': {
-    en: "I scored 7.5 on the IELTS thanks to Claire's intensive preparation. The exam simulations were very close to real conditions.",
-    ar: 'حصلت على 7.5 في الـ IELTS بفضل التحضير المكثف مع كلير. محاكاة الامتحان كانت قريبة جداً من الظروف الحقيقية.',
-  },
-  'testimonials.5.name': { en: 'Amelie Roux', ar: 'أميلي رو' },
-  'testimonials.5.role': { en: 'Startup founder', ar: 'مؤسسة شركة ناشئة' },
-  'testimonials.5.text': {
-    en: 'Flexible, professional, and always helpful. Claire adapts to my busy schedule and every lesson is productive.',
-    ar: 'مرنة ومحترفة ودائماً مفيدة. كلير تتكيف مع جدولي المزدحم وكل درس مثمر.',
-  },
-  'testimonials.6.name': { en: 'Pierre Lefevre', ar: 'بيير ليففر' },
-  'testimonials.6.role': { en: 'Retired traveler', ar: 'متقاعد مسافر' },
-  'testimonials.6.text': {
-    en: "At 65, I'm learning English for my travels. Claire is patient and encouraging. I finally feel comfortable traveling!",
-    ar: 'في سن 65، أتعلم الإنجليزية لأسفاري. كلير صبورة ومشجعة. أشعر أخيراً بالراحة أثناء السفر!',
-  },
+'hiw.step1.title':        { en: 'Book a Free Consultation',        ar: 'احجز استشارة مجانية' },
+'hiw.step1.desc':         {
+  en: "Fill in the contact form to schedule your free 30-minute discovery call. We'll discuss your goals, current level, and create your personalised learning plan.",
+  ar: 'املأ نموذج التواصل لتحديد موعد مكالمة استكشافية مجانية مدتها 30 دقيقة. سنناقش أهدافك ومستواك الحالي ونضع خطة تعلم مخصصة لك.',
+},
+'hiw.step2.title':        { en: 'Receive Your Custom Plan',        ar: 'استلم خطتك المخصصة' },
+'hiw.step2.desc':         {
+  en: "I'll design a tailor-made curriculum based on your needs — with materials, exercises, and a realistic timeline to reach your goal.",
+  ar: 'سأصمم منهجاً مخصصاً بناءً على احتياجاتك — بمواد وتمارين وجدول زمني واقعي للوصول إلى هدفك.',
+},
+'hiw.step3.title':        { en: 'Learn Live via Zoom',             ar: 'تعلّم مباشرةً عبر Zoom' },
+'hiw.step3.desc':         {
+  en: 'Join interactive 1-on-1 or group lessons on Zoom, Google Meet, or Skype. Interactive whiteboards, screen sharing & recorded sessions included.',
+  ar: 'انضم إلى دروس تفاعلية فردية أو جماعية عبر Zoom أو Google Meet أو Skype. تشمل السبورات التفاعلية ومشاركة الشاشة والجلسات المسجلة.',
+},
+'hiw.step4.title':        { en: 'Track Your Progress',             ar: 'تابع تقدمك' },
+'hiw.step4.desc':         {
+  en: 'After each lesson you get detailed feedback, homework, and a progress report. Watch your English improve week by week — measurably and confidently.',
+  ar: 'بعد كل درس تحصل على تقييم مفصل وواجبات وتقرير تقدم. شاهد تحسن إنجليزيتك أسبوعاً بعد أسبوع — بشكل ملموس وواثق.',
+},
+
+'hiw.platforms.title':    { en: 'Tools & Platforms I Use',         ar: 'الأدوات والمنصات التي أستخدمها' },
+'hiw.platforms.sub':      { en: 'Everything you need, all in one learning experience', ar: 'كل ما تحتاجه في تجربة تعليمية واحدة' },
+
+'hiw.guarantee.title':    { en: '100% Satisfaction Guarantee',     ar: 'ضمان الرضا 100٪' },
+'hiw.guarantee.desc':     {
+  en: "Not happy with your first paid lesson? I'll refund it — no questions asked. I'm that confident you'll love learning with me.",
+  ar: 'غير راضٍ عن أول درس مدفوع؟ سأعيد لك المبلغ — دون أي أسئلة. أنا واثق جداً أنك ستحب التعلم معي.',
+},
+
+// Reviews
+'reviews.badge':              { en: 'Student Reviews',                     ar: 'آراء الطلاب' },
+'reviews.title1':             { en: 'What My',                             ar: 'ماذا يقول' },
+'reviews.titleHighlight':     { en: 'Students Say',                        ar: 'طلابي' },
+'reviews.totalReviews':       { en: 'from 500+ reviews',                   ar: 'من أكثر من 500 تقييم' },
+'reviews.featured.text':      {
+  en: "Khawla doesn't just teach English — she builds your confidence. Within 4 months I was giving speeches in English at international conferences. She is truly exceptional.",
+  ar: 'خولة لا تعلّمك الإنجليزية فحسب — بل تبني ثقتك بنفسك. في غضون 4 أشهر كنت أُلقي خطباً بالإنجليزية في مؤتمرات دولية. إنها استثنائية حقاً.',
+},
+'reviews.featured.name':      { en: 'Priya Kapoor',                        ar: 'بريا كابور' },
+'reviews.featured.meta':      { en: '🇮🇳 India · Business English Student', ar: '🇮🇳 الهند · طالبة إنجليزية الأعمال' },
+
+// Add review form
+'reviews.add.cta':            { en: 'Share Your Experience',               ar: 'شارك تجربتك' },
+'reviews.add.title':          { en: 'Leave a Review',                      ar: 'اترك تقييماً' },
+'reviews.add.subtitle':       {
+  en: 'Your feedback helps other students find the right teacher.',
+  ar: 'تقييمك يساعد الطلاب الآخرين في إيجاد المعلمة المناسبة.',
+},
+'reviews.add.name':           { en: 'Full Name',                           ar: 'الاسم الكامل' },
+'reviews.add.namePh':         { en: 'Your name',                           ar: 'اسمك' },
+'reviews.add.country':        { en: 'Country',                             ar: 'الدولة' },
+'reviews.add.countryPh':      { en: 'e.g. 🇫🇷 France',                    ar: 'مثال: 🇸🇦 السعودية' },
+'reviews.add.course':         { en: 'Course Taken',                        ar: 'الدورة التي أخذتها' },
+'reviews.add.coursePh':       { en: 'e.g. Business English',               ar: 'مثال: إنجليزية الأعمال' },
+'reviews.add.rating':         { en: 'Your Rating',                         ar: 'تقييمك' },
+'reviews.add.text':           { en: 'Your Review',                         ar: 'مراجعتك' },
+'reviews.add.textPh':         {
+  en: 'Tell us about your experience with Khawla...',
+  ar: 'أخبرنا عن تجربتك مع خولة...',
+},
+'reviews.add.submit':         { en: 'Submit Review',                       ar: 'إرسال التقييم' },
+'reviews.add.submitting':     { en: 'Submitting...',                       ar: 'جارٍ الإرسال...' },
+'reviews.add.successTitle':   { en: 'Thank you! 🎉',                       ar: 'شكراً لك! 🎉' },
+'reviews.add.successDesc':    {
+  en: 'Your review has been submitted and will appear after verification.',
+  ar: 'تم إرسال تقييمك وسيظهر بعد المراجعة.',
+},
+'reviews.add.required':       { en: 'Please fill in all fields.',          ar: 'يرجى ملء جميع الحقول.' },
+'reviews.add.pending':        {
+  en: '⏳ Pending approval',
+  ar: '⏳ في انتظار الموافقة',
+},
 
   // Register
   'register.badge': { en: 'Join us', ar: 'انضم إلينا' },
