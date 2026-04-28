@@ -1,106 +1,136 @@
+'use client';
+
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-
-const faqs = [
-  {
-    q: 'How do the online lessons work?',
-    a: 'All lessons are conducted live via Zoom, Google Meet, or Skype — whichever you prefer. I share my screen for materials, use an interactive whiteboard, and can even record sessions so you can review them afterwards.',
-  },
-  {
-    q: 'What equipment do I need?',
-    a: 'Just a computer, tablet, or smartphone with a stable internet connection, a microphone, and ideally a webcam. I recommend using a desktop or laptop for the best experience, but mobile works too!',
-  },
-  {
-    q: 'How often should I take lessons?',
-    a: 'This depends on your goals and availability. For noticeable progress, I recommend 2–3 lessons per week. Even 1 lesson per week can lead to significant improvement over time when combined with self-study.',
-  },
-  {
-    q: 'What is your teaching approach?',
-    a: 'I use a communicative approach focused on real-life usage. Lessons are interactive, varied, and adapted to your learning style. I combine structured exercises with natural conversation for well-rounded learning.',
-  },
-  {
-    q: 'Do you teach children?',
-    a: 'Yes! I teach learners aged 8 and above. Lessons for younger students are designed with more games, visuals, and engaging activities to keep them motivated and focused.',
-  },
-  {
-    q: 'What if I miss a lesson?',
-    a: 'Life happens! Please give me at least 24 hours notice and we\'ll reschedule at no extra cost. Late cancellations (under 12 hours) may be charged, but I\'m always flexible for genuine emergencies.',
-  },
-  {
-    q: 'Can I switch courses or goals mid-way?',
-    a: 'Absolutely. Your learning journey evolves, and so do your lessons. We can adjust the curriculum, pace, or focus at any time. All I ask is that you communicate your changing needs so I can adapt accordingly.',
-  },
-  {
-    q: 'Do you offer group classes?',
-    a: 'Yes! Small group classes (2–5 students) are available at a reduced rate from $12/session. Group classes are great for conversational practice and a more social learning experience.',
-  },
-];
+import { useI18n } from '../lib/i18n';
 
 export default function FAQ() {
+  const { t, dir } = useI18n();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0d1428] to-[#0a0f1e]" />
+  const faqs = [
+    { qKey: 'faq.1.q', aKey: 'faq.1.a' },
+    { qKey: 'faq.2.q', aKey: 'faq.2.a' },
+    { qKey: 'faq.3.q', aKey: 'faq.3.a' },
+    { qKey: 'faq.4.q', aKey: 'faq.4.a' },
+    { qKey: 'faq.5.q', aKey: 'faq.5.a' },
+    { qKey: 'faq.6.q', aKey: 'faq.6.a' },
+    { qKey: 'faq.7.q', aKey: 'faq.7.a' },
+    { qKey: 'faq.8.q', aKey: 'faq.8.a' },
+  ];
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm font-medium mb-4">
-            FAQ
+  return (
+    <section
+      id="faq"
+      dir={dir}
+      className="relative py-24 overflow-hidden bg-[#f7f3ed]"
+    >
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle, #8B5CF6 1px, transparent 1px)',
+          backgroundSize: '30px 30px',
+        }}
+      />
+
+      {/* Glows */}
+      <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-[#C4B5FD]/20 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-[-60px] w-72 h-72 rounded-full bg-[#F9A8D4]/15 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[#FDE68A]/10 blur-3xl pointer-events-none" />
+
+      {/* Dashed decorative circles */}
+      <svg
+        className="absolute right-[-60px] top-1/2 -translate-y-1/2 w-72 h-72 opacity-[0.06] hidden lg:block pointer-events-none"
+        viewBox="0 0 320 320"
+        fill="none"
+      >
+        <circle cx="160" cy="160" r="155" stroke="#8B5CF6" strokeWidth="2" strokeDasharray="12 9" />
+        <circle cx="160" cy="160" r="128" stroke="#F59E0B" strokeWidth="1.2" strokeDasharray="5 12" opacity=".5" />
+      </svg>
+
+      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
+        <div className="text-center mb-14">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#EDE9FE] border border-[#C4B5FD]/50 text-[#7C3AED] text-sm font-semibold mb-4">
+            ✦ {t('faq.badge')}
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-            Common <span className="gradient-text">Questions</span>
+          <h2
+            className="text-4xl md:text-5xl font-black text-[#1a1a2e] mb-4 leading-tight"
+          >
+            {t('faq.title1')}{' '}
+            <span className="bg-linear-to-r from-[#8B5CF6] via-[#EC4899] to-[#F59E0B] bg-clip-text text-transparent">
+              {t('faq.titleHighlight')}
+            </span>
           </h2>
-          <p className="text-gray-400 text-lg">
-            Everything you need to know before booking your first lesson.
+          <p className="text-gray-500 text-lg max-w-xl mx-auto">
+            {t('faq.description')}
           </p>
         </div>
 
-        <div className="space-y-3">
-          {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className={`border rounded-2xl overflow-hidden transition-all duration-300 ${
-                openIndex === i
-                  ? 'border-amber-500/40 bg-amber-500/5'
-                  : 'border-white/10 bg-white/3 hover:border-white/20'
-              }`}
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between px-6 py-5 text-left"
-              >
-                <span className={`font-semibold text-base ${openIndex === i ? 'text-amber-400' : 'text-white'}`}>
-                  {faq.q}
-                </span>
-                <ChevronDown
-                  size={20}
-                  className={`shrink-0 ml-4 transition-transform duration-300 ${
-                    openIndex === i ? 'rotate-180 text-amber-400' : 'text-gray-500'
-                  }`}
-                />
-              </button>
+        {/* Accordion */}
+        <div className="space-y-3 mb-12">
+          {faqs.map((faq, i) => {
+            const isOpen = openIndex === i;
+            return (
               <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === i ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+                key={i}
+                className={`rounded-2xl border overflow-hidden backdrop-blur-sm transition-all duration-300 ${
+                  isOpen
+                    ? 'border-[#C4B5FD]/70 bg-white/80 shadow-lg shadow-purple-100/40'
+                    : 'border-[#C4B5FD]/25 bg-white/50 hover:border-[#C4B5FD]/50 hover:bg-white/70'
                 }`}
               >
-                <p className="px-6 pb-5 text-gray-400 text-sm leading-relaxed">
-                  {faq.a}
-                </p>
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  className="w-full flex items-center justify-between px-6 py-5"
+                >
+                  <span
+                    className={`font-semibold text-base text-start ${
+                      isOpen ? 'text-[#7C3AED]' : 'text-[#1a1a2e]'
+                    }`}
+                  >
+                    {t(faq.qKey)}
+                  </span>
+                  <ChevronDown
+                    size={20}
+                    className={`shrink-0 ms-4 transition-transform duration-300 ${
+                      isOpen ? 'rotate-180 text-[#7C3AED]' : 'text-gray-400'
+                    }`}
+                  />
+                </button>
+
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  {/* Separator */}
+                  <div className="mx-6 h-px bg-[#C4B5FD]/30" />
+                  <p className="px-6 py-5 text-gray-500 text-sm leading-relaxed">
+                    {t(faq.aKey)}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        <div className="mt-10 text-center">
-          <p className="text-gray-500 text-sm">
-            Still have questions?{' '}
-            <a href="#contact" className="text-amber-400 hover:underline font-medium">
-              Send me a message →
-            </a>
+        {/* Bottom CTA */}
+        <div className="text-center bg-linear-to-r from-[#EDE9FE] via-[#FCE7F3] to-[#FEF9C3] border border-[#C4B5FD]/30 rounded-3xl px-8 py-8">
+          <div className="text-3xl mb-3">💬</div>
+          <p className="text-[#1a1a2e] font-semibold mb-1">
+            {t('faq.still')}
           </p>
+          <a
+            href="#contact"
+            className="inline-block mt-2 text-sm font-bold text-[#7C3AED] hover:text-[#EC4899] transition-colors"
+          >
+            {t('faq.contact')}
+          </a>
         </div>
+
       </div>
     </section>
   );

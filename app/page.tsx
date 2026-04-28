@@ -24,8 +24,8 @@ export default function App() {
       <HowItWorks />
       <Reviews />
       {/* <Pricing /> */}
-      {/* <Register /> */}
-      {/* <FAQ /> */}
+      <Register />
+      <FAQ />
       <Contact />
       <Footer />
 
