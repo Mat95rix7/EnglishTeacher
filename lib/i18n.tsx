@@ -278,7 +278,7 @@ const translations: Translations = {
   'register.email': { en: 'Email', ar: 'البريد الإلكتروني' },
   'register.emailPlaceholder': { en: 'your@email.com', ar: 'your@email.com' },
   'register.phone': { en: 'Phone', ar: 'الهاتف' },
-  'register.phonePlaceholder': { en: '+33 6 XX XX XX XX', ar: '+966 5X XXX XXXX' },
+  'register.phonePlaceholder': { en: '+213 X XX XX XX XX', ar: '+966 5X XXX XXXX' },
   'register.level': { en: 'Your level', ar: 'مستواك' },
   'register.levelPlaceholder': { en: 'Select your level', ar: 'اختر مستواك' },
   'register.levelBeginner': { en: 'Beginner (A1-A2)', ar: 'مبتدئ (A1-A2)' },
@@ -311,13 +311,13 @@ const translations: Translations = {
 
   // Info cards
   'contact.emailTitle':       { en: 'Email Me',                              ar: 'راسلني' },
-  'contact.emailValue':       { en: 'khawla@englishwithkhawla.com',          ar: 'khawla@englishwithkhawla.com' },
+  'contact.emailValue':       { en: 'khawla@englishsahlawithkhawla.com', ar: 'khawla@englishsahlawithkhawla.com',},
   'contact.emailSub':         { en: 'Reply within 24 hours',                 ar: 'رد خلال 24 ساعة' },
   'contact.whatsappTitle':    { en: 'WhatsApp',                              ar: 'واتساب' },
   'contact.whatsappValue':    { en: '+213668387385',                     ar: '+213668387385' },
   'contact.whatsappSub':      { en: 'For quick questions',                   ar: 'للأسئلة السريعة' },
   'contact.hoursTitle':       { en: 'Available Hours',                       ar: 'ساعات التوفر' },
-  'contact.hoursValue':       { en: 'Satn – Thu: 8am – 8pm UTC',              ar: 'السبت – الخميس: 8ص – 8م' },
+  'contact.hoursValue':       { en: 'Sat – Thu: 8am – 8pm UTC',              ar: 'السبت – الخميس: 8ص – 8م' },
   'contact.hoursSub':         { en: 'Flexible for all time zones',           ar: 'مرن لجميع المناطق الزمنية' },
 
   // Socials
@@ -398,7 +398,7 @@ const translations: Translations = {
   'footer.podcast': { en: 'Podcast', ar: 'بودكاست' },
   'footer.faq': { en: 'FAQ', ar: 'الأسئلة الشائعة' },
   'footer.copyright': { en: 'All rights reserved.', ar: 'جميع الحقوق محفوظة.' },
-  'footer.madeWith': { en: 'Made with', ar: 'صُنع بـ' },
+  'footer.madeWith': { en: 'Made by Mat95rix7 with', ar: 'صُممه Mat95rix7 بـ' },
   'footer.forLearning': { en: 'for learning', ar: 'للتعلم' },
 };
 

@@ -7,7 +7,7 @@ import About from '@/components/About';
 import Courses from '@/components/Courses';
 import HowItWorks from '@/components/HowItWorks';
 import Reviews from '@/components/Reviews';
-import Pricing from '@/components/Pricing';
+// import Pricing from '@/components/Pricing';
 import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -19,14 +19,13 @@ export default function App() {
     <div className="min-h-screen bg-pattern" dir={dir}>
       <Navbar />
       <Hero />
-      <About />
       <Courses />
       <HowItWorks />
+      <About />
       <Reviews />
-      {/* <Pricing /> */}
-      <Register />
       <FAQ />
       <Contact />
+      <Register />
       <Footer />
 
       {/* Floating WhatsApp Button */}

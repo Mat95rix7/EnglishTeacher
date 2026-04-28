@@ -13,7 +13,7 @@ export default function Footer() {
       links: [
         { label: t('nav.home'), href: '#hero' },
         { label: t('nav.courses'), href: '#courses' },
-        { label: t('nav.testimonials'), href: '#testimonials' },
+        { label: t('nav.reviews'), href: '#reviews' },
         { label: t('nav.register'), href: '#register' },
         { label: t('nav.contact'), href: '#contact' },
       ],
@@ -34,7 +34,7 @@ export default function Footer() {
         { label: t('footer.blog'), href: '#' },
         { label: t('footer.freeExercises'), href: '#' },
         { label: t('footer.podcast'), href: '#' },
-        { label: t('footer.faq'), href: '#' },
+        { label: t('footer.faq'), href: '#faq' },
       ],
     },
   ];
@@ -50,8 +50,8 @@ export default function Footer() {
             <a href="#hero" className="flex items-center justify-center gap-2.5">
               <div className="relative w-10 h-10 rounded-full overflow-hidden flex items-center justify-center">
                 <Image
-                  src="/logo.jpeg"
-                  alt="English With Khawla logo"
+                  src="/Logo.jpeg"
+                  alt="English Sahla With Khawla logo"
                   fill
                   sizes="100px"
                   // style={{ objectFit: 'contain' }}
@@ -60,7 +60,7 @@ export default function Footer() {
                 />
               </div>
               <span className="heading-display text-xl font-semibold">
-                English With Khawla
+                English Sahla With Khawla
               </span>
             </a>
             <p className="text-beige-400 text-sm leading-relaxed max-w-sm mx-auto">
@@ -109,7 +109,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-beige-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-beige-500">
-            &copy; {new Date().getFullYear()} English With Khawla. {t('footer.copyright')}
+            &copy; {new Date().getFullYear()} English Sahla With Khawla. {t('footer.copyright')}
           </p>
           <p className="text-xs text-beige-500 flex items-center gap-1">
             {t('footer.madeWith')} <Heart className="w-3 h-3 text-lavender-400 fill-lavender-400" /> {t('footer.forLearning')}

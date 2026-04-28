@@ -7,11 +7,10 @@ import Image from 'next/image';
 
 const navLinks = [
   { labelKey: 'nav.home', href: '#hero', emoji: '🏠' },
-  { labelKey: 'nav.about', href: '#about', emoji: '👩‍🏫' },
   { labelKey: 'nav.courses', href: '#courses', emoji: '📚' },
   { labelKey: 'nav.howItWorks', href: '#how-it-works', emoji: '👤' },
+  { labelKey: 'nav.about', href: '#about', emoji: '👩‍🏫' },
   { labelKey: 'nav.reviews', href: '#reviews', emoji: '💬' },
-  { labelKey: 'nav.faq', href: '#faq', emoji: '❓' },
   { labelKey: 'nav.contact', href: '#contact', emoji: '📩' },
 ];
 
