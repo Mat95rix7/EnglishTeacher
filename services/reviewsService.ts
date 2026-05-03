@@ -34,7 +34,7 @@ interface ReviewDocument {
    → retourne l'id Firebase du document créé
 ───────────────────────────────────────────── */
 export async function addReview(
-  review: Omit<Review, 'id' | 'pending'>
+  review: Omit<Review, 'id' | 'pending' | 'color' | 'avatar'>
 ): Promise<string> {
   const payload: Omit<ReviewDocument, 'createdAt'> & { createdAt: unknown } = {
     name:      review.name,

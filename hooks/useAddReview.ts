@@ -8,7 +8,7 @@ export function useAddReview() {
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState<Error | null>(null);
 
-  const submit = async (form: Omit<Review, 'avatar' | 'color' | 'pending'>) => {
+  const submit = async (form: Omit<Review, 'id' | 'color' | 'pending' | 'avatar'>) => {
     if (status === 'submitting') return;
     setStatus('submitting');
     setError(null);
