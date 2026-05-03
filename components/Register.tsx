@@ -8,6 +8,8 @@ import {
 import { useI18n } from '../lib/i18n';
 import { saveRegistration } from '../lib/registrationService';
 
+
+
 const BENEFITS = [
   'register.benefit1',
   'register.benefit2',
@@ -60,6 +62,10 @@ function Field({
 
 export default function Register() {
   const { t, dir, lang } = useI18n();
+
+  const isRTL = dir === 'rtl';
+  const sRow:  React.CSSProperties = { flexDirection: isRTL ? 'row-reverse' : 'row' };
+  const sText: React.CSSProperties = { textAlign:     isRTL ? 'right'       : 'left' };
 
   const [formData, setFormData] = useState({
     name: '', email: '', phone: '', level: '', message: '',
@@ -161,6 +167,15 @@ export default function Register() {
               <span className="text-[#1a1a2e] text-sm font-semibold">{t(key)}</span>
             </div>
           ))}
+        </div>
+
+                {/* Availability pill */}
+        <div className="bg-green-50 border border-green-200 rounded-2xl px-5 py-4 flex items-center justify-center gap-3 mb-8" style={sRow}>
+          <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shrink-0" />
+          <div style={sText}>
+            <span className="text-green-700 font-semibold text-sm">{t('register.acceptingTitle')} </span>
+            <span className="text-green-600 text-sm">{t('register.acceptingDesc')}</span>
+          </div>
         </div>
 
         {/* ── Formulaire pleine largeur en bas ── */}
