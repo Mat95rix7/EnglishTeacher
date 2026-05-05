@@ -1,7 +1,7 @@
 'use client';
 
 import { Tab, StarRow, formatDate } from "@/app/admin/page";
-import { Question, Registration, Review } from "@/app/types";
+import { Question, Registration, Review } from "@/types";
 import { db } from "@/lib/firebase";
 import {
   collection, deleteDoc, doc, getDocs,
