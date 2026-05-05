@@ -14,6 +14,7 @@ import { nav } from "./translations/nav";
 import { register } from "./translations/register";
 import { reviews } from "./translations/reviews";
 import { stats } from "./translations/stats";
+import { dashboard } from "./translations/dashboard";
 
 export const translations: Translations = {
   ...about,
@@ -27,6 +28,7 @@ export const translations: Translations = {
   ...register,
   ...reviews,
   ...stats,
+  ...dashboard,
 };
 
 const I18nContext = createContext<I18nContextType | null>(null);
