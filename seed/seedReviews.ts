@@ -14,6 +14,7 @@ interface Review {
   createdAt: Timestamp | ReturnType<typeof serverTimestamp>;
 }
 
+
 export const MOCK_REVIEWS: Pick<
   Review,
   'name' | 'country' | 'avatar' | 'rating' | 'course' | 'text' | 'color' | 'pending' | 'featured' | 'createdAt'

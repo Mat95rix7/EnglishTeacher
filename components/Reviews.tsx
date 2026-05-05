@@ -1,12 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import { ChevronLeft, ChevronRight, Quote, PlusCircle } from 'lucide-react';
 import { useI18n } from '../lib/i18n';
 import { readReviews } from '@/services/reviews/reviews';
 import { StarRating } from '@/services/reviews/utils';
 import { Review } from '@/services/reviews/types';
 import { AddReviewForm } from './AddReviewForm';
+import { registrationService } from '@/seed/seedRegistrations';
+import { questionService } from '@/seed/seedQuestions';
 
 /* ─────────────────────────────────────────────
    Composant principal
