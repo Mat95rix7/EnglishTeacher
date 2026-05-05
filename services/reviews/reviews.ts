@@ -8,7 +8,7 @@ import {
   serverTimestamp,
 } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
-import type { Review } from '@/components/Reviews';
+import type { Review } from './types';
 import { AVATAR_COLORS, COLLECTION } from './constants';
 import type { ReviewDoc } from './types';
 
