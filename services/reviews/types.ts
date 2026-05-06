@@ -23,4 +23,5 @@ export interface Review {
   text: string;
   color: string;
   pending?: boolean;
+  featured?: boolean;
 }

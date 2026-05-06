@@ -7,11 +7,7 @@ export const reviews: Translations = {
         'reviews.titleHighlight':     { en: 'Students Say',                        ar: 'طلابي' },
         'reviews.totalReviews':       { en: 'from 500+ reviews',                   ar: 'من أكثر من 500 تقييم' },
         'reviews.featured.text':      {
-        en: "Khawla doesn't just teach English — she builds your confidence. Within 4 months I was giving speeches in English at international conferences. She is truly exceptional.",
-        ar: 'خولة لا تعلّمك الإنجليزية فحسب — بل تبني ثقتك بنفسك. في غضون 4 أشهر كنت أُلقي خطباً بالإنجليزية في مؤتمرات دولية. إنها استثنائية حقاً.',
         },
-        'reviews.featured.name':      { en: 'Priya Kapoor',                        ar: 'بريا كابور' },
-        'reviews.featured.meta':      { en: '🇮🇳 India · Business English Student', ar: '🇮🇳 الهند · طالبة إنجليزية الأعمال' },
 
         'reviews.noreviews':          { en: 'No reviews yet. Be the first one!',                      ar: 'لا توجد آراء حتى الآن. كن أول من يشارك رأيه!' },
 

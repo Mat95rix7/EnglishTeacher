@@ -69,6 +69,7 @@ export async function readReviews(): Promise<Review[]> {
         text:    data.text,
         color:   data.color,
         pending: data.pending ?? false,
+        featured: data.featured ?? false,
       } satisfies Review;
     })
     .filter((r) => !r.pending);

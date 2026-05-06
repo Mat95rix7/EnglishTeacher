@@ -21,11 +21,15 @@ export default function Reviews() {
   const visible = 3;
 
   // ── Chargement depuis Firestore au montage ─────────────────────────────────
+
+  const [featuredReview, setFeaturedReview] = useState<Review | null>(null);
+
   useEffect(() => {
     readReviews()
       .then((data) => {
-        // Affiche uniquement les avis validés (pending: false)
-        setReviews(data.filter((r) => !r.pending));
+        const published = data.filter((r) => !r.pending);
+        setFeaturedReview(published.find((r) => r.featured) ?? null);
+        setReviews(published.filter((r) => !r.featured));
       })
       .catch((err) => console.error('readReviews error:', err))
       .finally(() => setLoading(false));
@@ -37,8 +41,6 @@ export default function Reviews() {
   const displayed = reviews.slice(current, current + visible);
 
   const handleNewReview = (r: Review) => {
-    // Le nouvel avis est pending → on l'ajoute en local pour l'UI
-    // mais il n'est pas affiché publiquement tant que pending: false en base
     setReviews((prev) => [...prev, r]);
   };
 
@@ -104,28 +106,30 @@ export default function Reviews() {
           </div>
 
           {/* ── Featured review ── */}
-          <div className="relative mb-12 bg-linear-to-r from-[#EDE9FE] via-[#FCE7F3] to-[#FEF9C3] border border-[#C4B5FD]/30 rounded-3xl p-8 md:p-12 overflow-hidden">
-            <Quote
-              size={72}
-              className="absolute top-4 left-6 text-[#8B5CF6]/10 pointer-events-none"
-              style={dir === 'rtl' ? { left: 'auto', right: '1.5rem', transform: 'scaleX(-1)' } : {}}
-            />
-            <div className="relative z-10 text-center max-w-2xl mx-auto">
-              <p className="text-[#3d2a6b] text-lg md:text-xl font-light italic leading-relaxed mb-6">
-                "{t('reviews.featured.text')}"
-              </p>
-              <div className="flex items-center justify-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-linear-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white font-bold text-sm shrink-0">
-                  PK
+          {featuredReview && (
+            <div className="relative mb-12 bg-linear-to-r from-[#EDE9FE] via-[#FCE7F3] to-[#FEF9C3] border border-[#C4B5FD]/30 rounded-3xl p-8 md:p-12 overflow-hidden">
+              <Quote
+                size={72}
+                className="absolute top-4 left-6 text-[#8B5CF6]/10 pointer-events-none"
+                style={dir === 'rtl' ? { left: 'auto', right: '1.5rem', transform: 'scaleX(-1)' } : {}}
+              />
+              <div className="relative z-10 text-center max-w-2xl mx-auto">
+                <p className="text-[#3d2a6b] text-lg md:text-xl font-light italic leading-relaxed mb-6">
+                  "{featuredReview.text}"
+                </p>
+                <div className="flex items-center justify-center gap-3">
+                  <div className={`w-12 h-12 rounded-full bg-linear-to-br ${featuredReview.color} flex items-center justify-center text-white font-bold text-sm shrink-0`}>
+                    {featuredReview.avatar}
+                  </div>
+                  <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
+                    <div className="text-[#1a1a2e] font-bold text-sm">{featuredReview.name}</div>
+                    <div className="text-gray-500 text-xs">{featuredReview.country} · {featuredReview.course}</div>
+                  </div>
+                  <StarRating rating={featuredReview.rating} size={16} />
                 </div>
-                <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-                  <div className="text-[#1a1a2e] font-bold text-sm">{t('reviews.featured.name')}</div>
-                  <div className="text-gray-500 text-xs">{t('reviews.featured.meta')}</div>
-                </div>
-                <StarRating rating={5} size={16} />
               </div>
             </div>
-          </div>
+          )}
 
           {/* ── État de chargement ── */}
           {loading ? (
@@ -134,7 +138,7 @@ export default function Reviews() {
             </div>
           ) : reviews.length === 0 ? (
             <p className="text-center text-gray-400 text-sm py-10">
-              Aucun avis pour le moment.
+              {t('reviews.noReviews')}
             </p>
           ) : (
             <>
@@ -201,7 +205,7 @@ export default function Reviews() {
                       {reviews[current].course}
                     </span>
                     <p className="text-gray-500 text-sm leading-relaxed">
-                      "{reviews[current].text}"
+                      {reviews[current].text}
                     </p>
                   </div>
                 )}

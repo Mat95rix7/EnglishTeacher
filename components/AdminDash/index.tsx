@@ -13,14 +13,14 @@ import { QuestionsTab } from "./tabs/QuestionsTab";
 import { ReviewsTab } from "./tabs/ReviewsTab";
 
 export function Dashboard({ onLogout }: { onLogout: () => void }) {
-  const [tab, setTab]                   = useState<Tab>('registrations');
+  const [tab, setTab]                     = useState<Tab>('registrations');
   const [registrations, setRegistrations] = useState<Registration[]>([]);
-  const [questions, setQuestions]       = useState<Question[]>([]);
-  const [reviews, setReviews]           = useState<Review[]>([]);
-  const [loading, setLoading]           = useState(true);
-  const [expanded, setExpanded]         = useState<string | null>(null);
-  const [indexError, setIndexError]     = useState(false);
-  const { t, lang, dir, toggleLang }   = useI18n();
+  const [questions, setQuestions]         = useState<Question[]>([]);
+  const [reviews, setReviews]             = useState<Review[]>([]);
+  const [loading, setLoading]             = useState(true);
+  const [expanded, setExpanded]           = useState<string | null>(null);
+  const [indexError, setIndexError]       = useState(false);
+  const { t, lang, dir, toggleLang }      = useI18n();
 
   const safeDocs = async (col: string) => {
     try {
@@ -57,13 +57,15 @@ export function Dashboard({ onLogout }: { onLogout: () => void }) {
   useEffect(() => { fetchAll(); }, [fetchAll]);
 
   /* ── Firestore handlers ─────────────────────────────────────────────── */
-  const togglePublished  = async (id: string, cur: boolean) => {
+  const togglePublished = async (id: string, cur: boolean) => {
     await updateDoc(doc(db, 'reviews', id), { pending: !cur });
     setReviews(p => p.map(r => r.id === id ? { ...r, pending: !cur } : r));
   };
   const toggleFeatured = async (id: string, cur: boolean) => {
     if (!cur) {
-      await Promise.all(reviews.filter(r => r.featured && r.id !== id).map(r => updateDoc(doc(db, 'reviews', r.id), { featured: false })));
+      await Promise.all(reviews.filter(r => r.featured && r.id !== id).map(r =>
+        updateDoc(doc(db, 'reviews', r.id), { featured: false })
+      ));
     }
     await updateDoc(doc(db, 'reviews', id), { featured: !cur });
     setReviews(p => p.map(r => {
@@ -72,19 +74,70 @@ export function Dashboard({ onLogout }: { onLogout: () => void }) {
       return r;
     }));
   };
-  const deleteReview    = async (id: string) => { if (!confirm(t('dashboard.confirmDel'))) return; await deleteDoc(doc(db, 'reviews', id)); setReviews(p => p.filter(r => r.id !== id)); };
-  const markAnswered    = async (id: string) => { await updateDoc(doc(db, 'questions', id), { answered: true }); setQuestions(p => p.map(q => q.id === id ? { ...q, answered: true } : q)); };
-  const deleteQuestion  = async (id: string) => { if (!confirm(t('dashboard.confirmDel'))) return; await deleteDoc(doc(db, 'questions', id)); setQuestions(p => p.filter(q => q.id !== id)); };
-  const deleteReg       = async (id: string) => { if (!confirm(t('dashboard.confirmDel'))) return; await deleteDoc(doc(db, 'registrations', id)); setRegistrations(p => p.filter(r => r.id !== id)); };
+  const deleteReview   = async (id: string) => { if (!confirm(t('dashboard.confirmDel'))) return; await deleteDoc(doc(db, 'reviews', id));        setReviews(p => p.filter(r => r.id !== id)); };
+  const markAnswered   = async (id: string) => { await updateDoc(doc(db, 'questions', id), { answered: true });                                    setQuestions(p => p.map(q => q.id === id ? { ...q, answered: true } : q)); };
+  const deleteQuestion = async (id: string) => { if (!confirm(t('dashboard.confirmDel'))) return; await deleteDoc(doc(db, 'questions', id));       setQuestions(p => p.filter(q => q.id !== id)); };
+  const deleteReg      = async (id: string) => { if (!confirm(t('dashboard.confirmDel'))) return; await deleteDoc(doc(db, 'registrations', id));   setRegistrations(p => p.filter(r => r.id !== id)); };
 
   /* ── Counts & tabs config ───────────────────────────────────────────── */
   const pendingReviews = reviews.filter(r => r.pending).length;
   const unanswered     = questions.filter(q => !q.answered).length;
 
+      const colorMap = {
+      registrations: {
+        active:      'text-violet-700 border-t-[3px] border-t-violet-500',
+        hover:       'hover:text-violet-600',
+        badgeActive: 'bg-violet-100 text-violet-800',
+      },
+      questions: {
+        active:      'text-rose-600 border-t-[3px] border-t-rose-400',
+        hover:       'hover:text-rose-500',
+        badgeActive: 'bg-rose-100 text-rose-800',
+      },
+      reviews: {
+        active:      'text-amber-700 border-t-[3px] border-t-amber-400',
+        hover:       'hover:text-amber-600',
+        badgeActive: 'bg-amber-100 text-amber-800',
+      },
+    } as const;
+
   const tabs = [
-    { key: 'registrations' as Tab, label: t('dashboard.registrations'), icon: <Users size={14} />,       badge: registrations.length || undefined },
-    { key: 'questions'     as Tab, label: t('dashboard.questions'),      icon: <MessageSquare size={14} />, badge: unanswered || undefined },
-    { key: 'reviews'       as Tab, label: t('dashboard.reviews'),        icon: <Star size={14} />,         badge: pendingReviews || undefined },
+    {
+      key:   'registrations' as Tab,
+      label: t('dashboard.registrations'),
+      icon:  <Users size={16} />,
+      badge: registrations.length || undefined,
+      activeBadgeCls: 'bg-violet-100 text-violet-600',
+      activeTextCls:  'text-violet-700',
+      activeShadow:   'shadow-[0_-4px_16px_rgba(139,92,246,0.12)]',
+      hoverCls:       'hover:text-violet-500 hover:bg-violet-50/70',
+      activeBorderCls:'border-violet-100',
+      activeBg:       'bg-violet-200',
+    },
+    {
+      key:   'questions' as Tab,
+      label: t('dashboard.questions'),
+      icon:  <MessageSquare size={16} />,
+      badge: unanswered || undefined,
+      activeBadgeCls: 'bg-rose-100 text-rose-600',
+      activeTextCls:  'text-rose-600',
+      activeShadow:   'shadow-[0_-4px_16px_rgba(244,63,94,0.10)]',
+      hoverCls:       'hover:text-rose-400 hover:bg-rose-50/70',
+      activeBorderCls:'border-rose-100',
+      activeBg:       'bg-rose-200',
+    },
+    {
+      key:   'reviews' as Tab,
+      label: t('dashboard.reviews'),
+      icon:  <Star size={16} />,
+      badge: pendingReviews || undefined,
+      activeBadgeCls: 'bg-amber-100 text-amber-700',
+      activeTextCls:  'text-amber-600',
+      activeShadow:   'shadow-[0_-4px_16px_rgba(251,191,36,0.12)]',
+      hoverCls:       'hover:text-amber-500 hover:bg-amber-50/70',
+      activeBorderCls:'border-amber-100',
+      activeBg:       'bg-amber-200',
+    },
   ];
 
   const kpis = [
@@ -121,41 +174,92 @@ export function Dashboard({ onLogout }: { onLogout: () => void }) {
         </div>
 
         {/* Main panel */}
-        <div className="bg-[#f1f1e3] border border-slate-200 rounded-2xl overflow-hidden fade-up" style={{ animationDelay: '0.08s' }}>
-          <div className="flex justify-around bg-amber-200 border-b border-slate-100">
-            {tabs.map((tb) => (
-              <button
-                key={tb.key}
-                onClick={() => setTab(tb.key)}
-                className={`relative flex items-center gap-2 px-5 py-3.5 text-lg font-medium transition-colors ${tab === tb.key ? 'text-violet-700' : 'text-slate-400 hover:text-slate-600'}`}
-              >
-                {tb.icon}
-                <span className="hidden sm:inline">{tb.label}</span>
-                {tb.badge !== undefined && (
-                  <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full ${
-                    tb.key === 'reviews' ? 'bg-amber-100 text-amber-700' : tb.key === 'questions' ? 'bg-rose-100 text-rose-600' : 'bg-violet-100 text-violet-600'
-                  }`}>{tb.badge}</span>
-                )}
-                {tab === tb.key && <span className="tab-indicator" />}
-              </button>
-            ))}
+        <div
+          className="bg-slate-50 border border-slate-200 rounded-2xl fade-up"
+          style={{ animationDelay: '0.08s' }}
+        >
+          {/* Tabs */}
+          <div className="flex justify-around border-b border-slate-200 bg-white/80 rounded-t-2xl px-2 pt-2 gap-1">
+            {tabs.map((tb) => {
+              const isActive = tab === tb.key;
+              const c = colorMap[tb.key];
+              return (
+                <button
+                  key={tb.key}
+                  onClick={() => setTab(tb.key)}
+                  className={`
+                      relative flex items-center justify-center gap-2 flex-1
+                      px-4 py-6 text-lg font-semibold rounded-t-xl
+                      border border-b-0 transition-all duration-200
+                      ${isActive
+                        ? `${tb.activeBg} ${c.active} border-slate-200 border-b-white
+                          -translate-y-1.5 pb-5 pt-3
+                          shadow-[0_-3px_10px_rgba(0,0,0,0.07)] z-10`
+                        : `bg-slate-100 border-transparent text-slate-400 translate-y-0 py-2.5
+                          ${c.hover} hover:bg-white/80 hover:-translate-y-0.5`
+                      }
+                              `}
+                            >
+                              {tb.icon}
+                              <span className="hidden sm:inline">{tb.label}</span>
+                              {tb.badge !== undefined && (
+                      <span className={`text-[16px] font-semibold px-1.5 py-0.5 rounded-full transition-colors ${
+                        isActive ? c.badgeActive : 'bg-slate-200 text-slate-500'
+                      }`}>
+                        {tb.badge}
+                      </span>
+                  )}
+                </button>
+              );
+            })}
           </div>
+          {/* Ligne colorée + contenu */}
+        <div className="bg-white border border-slate-200 rounded-b-2xl rounded-tr-2xl relative z-[5]">
+          {/* Trait coloré en haut du panel qui suit la tab active */}
+            <div className={`h-[3px] rounded-none transition-colors duration-200 ${
+              tab === 'registrations' ? 'bg-violet-500' :
+              tab === 'questions'     ? 'bg-rose-400'   :
+                                        'bg-amber-400'
+            }`} />
 
-          <div className="p-4 sm:p-5">
-            {loading ? (
-              <div className="flex flex-col items-center justify-center py-20 gap-3">
-                <div className="w-7 h-7 rounded-full border-2 border-violet-400 border-t-transparent animate-spin" />
-                <p className="text-slate-400 text-sm">{t('dashboard.loading')}</p>
-              </div>
-            ) : (
-              <>
-                {tab === 'registrations' && <RegistrationsTab registrations={registrations} expanded={expanded} setExpanded={setExpanded} onDelete={deleteReg} />}
-                {tab === 'questions'     && <QuestionsTab     questions={questions}     onMarkAnswered={markAnswered}   onDelete={deleteQuestion} />}
-                {tab === 'reviews'       && <ReviewsTab       reviews={reviews}         onTogglePublished={togglePublished} onToggleFeatured={toggleFeatured} onDelete={deleteReview} />}
-              </>
-            )}
+            {/* Content */}
+            <div className="p-4 sm:p-5">
+              {loading ? (
+                <div className="flex flex-col items-center justify-center py-20 gap-3">
+                  <div className="w-7 h-7 rounded-full border-2 border-violet-400 border-t-transparent animate-spin" />
+                  <p className="text-slate-400 text-sm">{t('dashboard.loading')}</p>
+                </div>
+              ) : (
+                <>
+                  {tab === 'registrations' && (
+                    <RegistrationsTab
+                      registrations={registrations}
+                      expanded={expanded}
+                      setExpanded={setExpanded}
+                      onDelete={deleteReg}
+                    />
+                  )}
+                  {tab === 'questions' && (
+                    <QuestionsTab
+                      questions={questions}
+                      onMarkAnswered={markAnswered}
+                      onDelete={deleteQuestion}
+                    />
+                  )}
+                  {tab === 'reviews' && (
+                    <ReviewsTab
+                      reviews={reviews}
+                      onTogglePublished={togglePublished}
+                      onToggleFeatured={toggleFeatured}
+                      onDelete={deleteReview}
+                    />
+                  )}
+                </>
+              )}
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   );
