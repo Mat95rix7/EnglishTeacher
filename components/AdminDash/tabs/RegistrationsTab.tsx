@@ -40,23 +40,18 @@ export function RegistrationsTab({ registrations, expanded, setExpanded, onDelet
           >
             <div className="flex items-center gap-3">
               <div className={`w-9 h-9 rounded-xl flex items-center justify-center text-xs font-semibold shrink-0 ${AVATAR_COLORS[idx % AVATAR_COLORS.length]}`}>
-                {initials(r.name)}
+                {initials(`${r.firstName} ${r.lastName}`)}
               </div>
               <div>
-                <p className="text-sm font-semibold text-slate-800">{r.name}</p>
+                <p className="text-sm font-semibold text-slate-800">{r.firstName} {r.lastName}</p>
                 <p className="text-xs text-slate-400 font-mono">{r.email}</p>
               </div>
             </div>
 
             <div className="flex items-center gap-2.5">
-              <Pill color="violet">{r.course}</Pill>
+              <Pill color="violet">{r.courses}</Pill>
               <span className="text-xs text-slate-400 font-mono hidden md:block">{formatDate(r.createdAt)}</span>
-              <button
-                onClick={(e) => { e.stopPropagation(); onDelete(r.id); }}
-                className="p-1.5 text-slate-300 hover:text-rose-400 hover:bg-rose-50 rounded-lg transition-all"
-              >
-                <Trash2 size={13} />
-              </button>
+              
               {expanded === r.id
                 ? <ChevronUp size={14} className="text-slate-400" />
                 : <ChevronDown size={14} className="text-slate-400" />
@@ -65,10 +60,27 @@ export function RegistrationsTab({ registrations, expanded, setExpanded, onDelet
           </div>
 
           {expanded === r.id && (
-            <div className="border-t border-slate-100 bg-slate-50 px-4 py-3 grid grid-cols-2 gap-4">
-              {r.whatsapp && <FieldItem label={t('dashboard.whatsapp')} value={r.whatsapp} />}
-              {r.level    && <FieldItem label={t('dashboard.level')}    value={r.level} />}
-              {r.message  && <FieldItem label={t('dashboard.message')}  value={r.message} full />}
+            <div className="relative border-t border-slate-100 bg-slate-50 px-4 py-3 grid grid-cols-2 gap-4">
+              {r.phone   && <FieldItem label={t('dashboard.phone')}   value={r.phone} />}
+              {r.level   && <FieldItem label={t('dashboard.level')}   value={r.level} />}
+              {r.message && <FieldItem label={t('dashboard.message')} value={r.message} full />}
+
+              {/* Delete button */}
+              <button
+                onClick={(e) => { e.stopPropagation(); onDelete(r.id); }}
+                className="
+                  absolute bottom-3 right-3
+                  flex items-center justify-center
+                  p-2
+                  text-slate-600
+                  hover:text-rose-400
+                  hover:bg-rose-50
+                  rounded-lg
+                  transition-all
+                "
+              >
+                <Trash2 size={16} />
+              </button>
             </div>
           )}
         </div>

@@ -6,7 +6,7 @@ import {
   User, Mail, Phone, BookOpen, MessageSquare,
 } from 'lucide-react';
 import { useI18n } from '../lib/i18n';
-import { saveRegistration } from '../lib/registrationService';
+import { saveRegistration } from '@/services/registrationService';
 
 
 
@@ -18,11 +18,22 @@ const BENEFITS = [
 ] as const;
 
 const LEVELS = [
-  { value: 'beginner',     key: 'register.levelBeginner'     },
-  { value: 'intermediate', key: 'register.levelIntermediate' },
-  { value: 'advanced',     key: 'register.levelAdvanced'     },
-  { value: 'exam',         key: 'register.levelExam'         },
-  { value: 'professional', key: 'register.levelProfessional' },
+  { value: 'Beginner A1-A2',     key: 'register.levelBeginner'     },
+  { value: 'Intermediate B1-B2', key: 'register.levelIntermediate' },
+  { value: 'Advanced C1-C2',     key: 'register.levelAdvanced'     },
+  { value: 'Exam',         key: 'register.levelExam'         },
+  { value: 'Professional', key: 'register.levelProfessional' },
+] as const;
+
+const COURSES = [
+  { value: 'Conversation', key: 'register.courseConversation' },
+  { value: 'Grammar',      key: 'register.courseGrammar'      },
+  { value: 'Vocabulary',   key: 'register.courseVocabulary'   },
+  { value: 'Listening',    key: 'register.courseListening'    },
+  { value: 'Reading',      key: 'register.courseReading'      },
+  { value: 'Writing',      key: 'register.courseWriting'      },
+  { value: 'Business',     key: 'register.courseBusiness'     },
+  { value: 'Exam',         key: 'register.courseExam'         },
 ] as const;
 
 const inputBase = [
@@ -68,7 +79,7 @@ export default function Register() {
   const sText: React.CSSProperties = { textAlign:     isRTL ? 'right'       : 'left' };
 
   const [formData, setFormData] = useState({
-    name: '', email: '', phone: '', level: '', message: '',
+    firstName: '', lastName: '', email: '', phone: '', courses: '', level: '', message: '',
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading,   setLoading]   = useState(false);
@@ -83,7 +94,7 @@ export default function Register() {
     setLoading(true);
     setError('');
     try {
-      await saveRegistration({ ...formData, lang });
+      await saveRegistration(formData);
       setSubmitted(true);
     } catch {
       setError(t('register.error'));
@@ -199,7 +210,7 @@ export default function Register() {
               <button
                 onClick={() => {
                   setSubmitted(false);
-                  setFormData({ name: '', email: '', phone: '', level: '', message: '' });
+                  setFormData({ firstName: '', lastName: '', email: '', phone: '', courses: '', level: '', message: '' });
                 }}
                 className="mt-2 text-xs font-semibold text-[#7C3AED] hover:text-[#EC4899] transition-colors underline underline-offset-2"
               >
@@ -234,14 +245,25 @@ export default function Register() {
 
               {/* Champs sur 2 colonnes */}
               <div className="grid sm:grid-cols-2 gap-4">
-                <Field icon={User} label={t('register.name')} required>
+                <Field icon={User} label={t('register.firstName')} required>
                   <input
                     type="text"
                     required
-                    value={formData.name}
-                    onChange={set('name')}
+                    value={formData.firstName}
+                    onChange={set('firstName')}
                     className={inputBase}
-                    placeholder={t('register.namePlaceholder')}
+                    placeholder={t('register.firstNamePlaceholder')}
+                  />
+                </Field>
+
+                <Field icon={User} label={t('register.lastName')} required>
+                  <input
+                    type="text"
+                    required
+                    value={formData.lastName}
+                    onChange={set('lastName')}
+                    className={inputBase}
+                    placeholder={t('register.lastNamePlaceholder')}
                   />
                 </Field>
 
@@ -256,9 +278,10 @@ export default function Register() {
                   />
                 </Field>
 
-                <Field icon={Phone} label={t('register.phone')}>
+                <Field icon={Phone} label={t('register.phone')} required>
                   <input
                     type="tel"
+                    required
                     value={formData.phone}
                     onChange={set('phone')}
                     className={inputBase}
@@ -266,7 +289,20 @@ export default function Register() {
                   />
                 </Field>
 
-                <Field icon={BookOpen} label={t('register.level')}>
+                <Field icon={BookOpen} label={t('register.courses')} required>
+                  <select
+                    value={formData.courses}
+                    onChange={set('courses')}
+                    className={`${inputBase} appearance-none cursor-pointer`}
+                  >
+                    <option value="">{t('register.coursesPlaceholder')}</option>
+                    {COURSES.map(({ value, key }) => (
+                      <option key={value} value={value}>{t(key)}</option>
+                    ))}
+                  </select>
+                </Field>
+
+                <Field icon={BookOpen} label={t('register.level')} required>
                   <select
                     value={formData.level}
                     onChange={set('level')}

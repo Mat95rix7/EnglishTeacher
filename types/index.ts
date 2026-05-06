@@ -2,11 +2,12 @@
 
 export interface Registration {
   id: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  whatsapp?: string;
-  course: string;
-  level?: string;
+  phone: string;
+  courses: string;
+  level: string;
   message?: string;
   createdAt: any;
 }

@@ -14,19 +14,34 @@ export const register: Translations = {
   'register.benefit3': { en: 'Total schedule flexibility', ar: 'مرونة تامة في الجدول' },
   'register.benefit4': { en: 'Regular follow-up and feedback', ar: 'متابعة وتقييم منتظمان' },
   'register.formTitle': { en: 'Sign up', ar: 'سجّل الآن' },
-  'register.name': { en: 'Full name', ar: 'الاسم الكامل' },
-  'register.namePlaceholder': { en: 'Your name', ar: 'اسمك' },
+  'register.firstName': { en: 'First name', ar: 'الاسم ' },
+  'register.lastName': { en: 'Last name', ar: 'اللقب' },
   'register.email': { en: 'Email', ar: 'البريد الإلكتروني' },
   'register.emailPlaceholder': { en: 'your@email.com', ar: 'your@email.com' },
   'register.phone': { en: 'Phone', ar: 'الهاتف' },
   'register.phonePlaceholder': { en: '+213 X XX XX XX XX', ar: '+966 5X XXX XXXX' },
+  'register.courses': { en: 'Courses', ar: 'الدورات' },
+  'register.coursesPlaceholder': { en: 'Select your courses', ar: 'اختر دوراتك' },
+
   'register.level': { en: 'Your level', ar: 'مستواك' },
   'register.levelPlaceholder': { en: 'Select your level', ar: 'اختر مستواك' },
+
   'register.levelBeginner': { en: 'Beginner (A1-A2)', ar: 'مبتدئ (A1-A2)' },
   'register.levelIntermediate': { en: 'Intermediate (B1-B2)', ar: 'متوسط (B1-B2)' },
   'register.levelAdvanced': { en: 'Advanced (C1-C2)', ar: 'متقدم (C1-C2)' },
   'register.levelExam': { en: 'Exam preparation', ar: 'تحضير امتحان' },
   'register.levelProfessional': { en: 'Professional English', ar: 'إنجليزية مهنية' },
+
+  'register.courseConversation': { en: 'Conversation', ar: 'المحادثة' },
+  'register.courseGrammar': { en: 'Grammar', ar: 'القواعد' },
+  'register.courseWriting': { en: 'Writing', ar: 'الكتابة' },
+  'register.courseBusiness': { en: 'Business English', ar: 'الإنجليزية المهنية' },
+  'register.courseExam': { en: 'Exam preparation', ar: 'تحضير امتحان' },
+  'register.courseVocabulary': { en: 'Vocabulary', ar: 'المفردات' },
+  'register.courseListening': { en: 'Listening', ar: 'الاستماع' },
+  'register.courseReading': { en: 'Reading', ar: 'القراءة' },
+
+
   'register.message': { en: 'Message', ar: 'رسالة' },
   'register.messagePlaceholder': { en: 'Tell me more about your goals...', ar: 'أخبرني المزيد عن أهدافك...' },
   'register.submit': { en: 'Sign up', ar: 'سجّل الآن' },
@@ -37,7 +52,8 @@ export const register: Translations = {
   },
   'register.error': { en: 'An error occurred. Please try again.', ar: 'حدث خطأ. يرجى المحاولة مرة أخرى.' },
   'register.sending': { en: 'Sending...', ar: 'جارٍ الإرسال...' },
-  'register.namePh':  { en: 'Your full name', ar: 'اسمك الكامل' },
+  'register.firstNamePlaceholder': { en: 'Your first name', ar: 'اسمك ' },
+  'register.lastNamePlaceholder': { en: 'Your last name', ar: 'لقبك' },
 
     // Availability
   'register.acceptingTitle':   { en: 'Currently Accepting Students',          ar: 'أقبل طلاباً حالياً' },

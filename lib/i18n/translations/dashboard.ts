@@ -28,7 +28,7 @@ export const dashboard: Translations = {
   'dashboard.markAnswered': { en: 'Mark answered',          ar: 'تم الرد' },
 
   'dashboard.delete':       { en: 'Delete',                 ar: 'حذف' },
-  'dashboard.whatsapp':     { en: 'WhatsApp',               ar: 'واتساب' },
+  'dashboard.phone':     { en: 'Phone',               ar: 'الهاتف' },
 
   'dashboard.level':        { en: 'Level',                  ar: 'المستوى' },
   'dashboard.message':      { en: 'Message',                ar: 'الرسالة' },
