@@ -18,6 +18,7 @@ export interface Question {
   email?: string;
   question: string;
   answered: boolean;
+  lang?: string;
   createdAt: any;
 }
 
