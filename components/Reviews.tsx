@@ -7,6 +7,7 @@ import { readReviews } from '@/services/reviews/reviews';
 import { StarRating } from '@/services/reviews/utils';
 import { Review } from '@/services/reviews/types';
 import { AddReviewForm } from './AddReviewForm';
+import { isArabic } from '@/lib/utils';
 
 /* ─────────────────────────────────────────────
    Composant principal
@@ -114,8 +115,8 @@ export default function Reviews() {
                 style={dir === 'rtl' ? { left: 'auto', right: '1.5rem', transform: 'scaleX(-1)' } : {}}
               />
               <div className="relative z-10 text-center max-w-2xl mx-auto">
-                <p className="text-[#3d2a6b] text-lg md:text-xl font-light italic leading-relaxed mb-6">
-                  "{featuredReview.text}"
+                <p className={`text-[#3d2a6b] text-lg md:text-xl font-light italic leading-relaxed mb-6 ${isArabic(featuredReview.text) ? 'text-right font-arabic-friendly' : 'text-left'}`}>
+                  {featuredReview.text}
                 </p>
                 <div className="flex items-center justify-center gap-3">
                   <div className={`w-12 h-12 rounded-full bg-linear-to-br ${featuredReview.color} flex items-center justify-center text-white font-bold text-sm shrink-0`}>
@@ -171,7 +172,7 @@ export default function Reviews() {
                     <span className="inline-block px-3 py-1 rounded-full bg-[#EDE9FE] text-[#7C3AED] text-xs font-semibold mb-3 w-fit">
                       {review.course}
                     </span>
-                    <p className="text-gray-500 text-sm leading-relaxed flex-1">
+                    <p className={`text-gray-500 text-sm leading-relaxed flex-1 ${isArabic(review.text) ? 'text-right font-arabic-friendly' : 'text-left'}`}>
                       {review.text}
                     </p>
                   </div>
@@ -204,7 +205,7 @@ export default function Reviews() {
                     <span className="inline-block px-3 py-1 rounded-full bg-[#EDE9FE] text-[#7C3AED] text-xs font-semibold mb-3">
                       {reviews[current].course}
                     </span>
-                    <p className="text-gray-500 text-sm leading-relaxed">
+                    <p className={`text-gray-500 text-sm leading-relaxed ${isArabic(reviews[current].text) ? 'text-right font-arabic-friendly' : 'text-left'}`}>
                       {reviews[current].text}
                     </p>
                   </div>

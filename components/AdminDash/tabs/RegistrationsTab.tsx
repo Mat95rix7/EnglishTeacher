@@ -35,23 +35,24 @@ export function RegistrationsTab({ registrations, expanded, setExpanded, onDelet
           style={{ animationDelay: `${idx * 0.04}s`, borderColor: '#f1f5f9' }}
         >
           <div
-            className="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-slate-50 transition-colors"
+            className="flex items-center justify-between gap-2 px-4 py-3 cursor-pointer hover:bg-slate-50 transition-colors"
             onClick={() => setExpanded(expanded === r.id ? null : r.id)}
           >
-            <div className="flex items-center gap-3">
+            {/* Avatar + Nom/Email */}
+            <div className="flex items-center gap-3 min-w-0">
               <div className={`w-9 h-9 rounded-xl flex items-center justify-center text-xs font-semibold shrink-0 ${AVATAR_COLORS[idx % AVATAR_COLORS.length]}`}>
                 {initials(`${r.firstName} ${r.lastName}`)}
               </div>
-              <div>
-                <p className="text-sm font-semibold text-slate-800">{r.firstName} {r.lastName}</p>
-                <p className="text-xs text-slate-400 font-mono">{r.email}</p>
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-slate-800 truncate">{r.firstName} {r.lastName}</p>
+                <p className="text-xs text-slate-400 font-mono truncate">{r.email}</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5">
+            {/* Droite : pill + date + chevron */}
+            <div className="flex items-center gap-2 shrink-0">
               <Pill color="violet">{r.courses}</Pill>
               <span className="text-xs text-slate-400 font-mono hidden md:block">{formatDate(r.createdAt)}</span>
-              
               {expanded === r.id
                 ? <ChevronUp size={14} className="text-slate-400" />
                 : <ChevronDown size={14} className="text-slate-400" />
@@ -60,24 +61,14 @@ export function RegistrationsTab({ registrations, expanded, setExpanded, onDelet
           </div>
 
           {expanded === r.id && (
-            <div className="relative border-t border-slate-100 bg-slate-50 px-4 py-3 grid grid-cols-2 gap-4">
+            <div className="relative border-t border-slate-100 bg-slate-50 px-4 py-3 grid grid-cols-1 sm:grid-cols-2 gap-3 pb-12">
               {r.phone   && <FieldItem label={t('dashboard.phone')}   value={r.phone} />}
               {r.level   && <FieldItem label={t('dashboard.level')}   value={r.level} />}
               {r.message && <FieldItem label={t('dashboard.message')} value={r.message} full />}
 
-              {/* Delete button */}
               <button
                 onClick={(e) => { e.stopPropagation(); onDelete(r.id); }}
-                className="
-                  absolute bottom-3 right-3
-                  flex items-center justify-center
-                  p-2
-                  text-slate-600
-                  hover:text-rose-400
-                  hover:bg-rose-50
-                  rounded-lg
-                  transition-all
-                "
+                className="absolute bottom-3 right-3 flex items-center justify-center p-2 text-slate-400 hover:text-rose-400 hover:bg-rose-50 rounded-lg transition-all"
               >
                 <Trash2 size={16} />
               </button>

@@ -164,9 +164,9 @@ export function Dashboard({ onLogout }: { onLogout: () => void }) {
         <div className="grid grid-cols-3 gap-3 fade-up">
           {kpis.map((k) => (
             <div key={k.label} className={`${k.bg} border ${k.border} rounded-2xl p-4 flex flex-col gap-3`}>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-center sm:justify-between">
                 <span className="text-slate-500 text-md font-medium">{k.label}</span>
-                <div className={`w-7 h-7 rounded-lg ${k.icon_bg} ${k.icon_color} flex items-center justify-center`}>{k.icon}</div>
+                <div className={`w-7 h-7 rounded-lg ${k.icon_bg} ${k.icon_color} text-center hidden sm:flex items-center justify-center`}>{k.icon}</div>
               </div>
               <p className={`text-3xl font-semibold text-center ${k.val_color}`}>{k.value}</p>
             </div>

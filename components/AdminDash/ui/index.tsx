@@ -1,3 +1,5 @@
+import { isArabic } from "@/lib/utils";
+
 export function Empty({ label }: { label: string }) {
   return (
     <div className="flex flex-col items-center justify-center py-16 gap-2 text-slate-300">
@@ -21,7 +23,7 @@ export function FieldItem({
       <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-widest mb-0.5">
         {label}
       </p>
-      <p className="text-sm text-slate-700">{value}</p>
+      <p className={`text-sm text-slate-700 ${isArabic(value) ? 'text-right' : 'text-left'}`}>{value}</p>
     </div>
   );
 }
