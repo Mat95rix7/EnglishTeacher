@@ -41,7 +41,7 @@ const BG_ELEMENTS = [
 
 const facts = [
   { emoji: '🌍',  number: '45+',   labelKey: 'stats.countries' },
-  { emoji: '📅',  number: '8',     labelKey: 'stats.years'     },
+  { emoji: '📅',  number: '10',     labelKey: 'stats.years'     },
   { emoji: '👩‍🎓', number: '500+', labelKey: 'stats.students'  },
   { emoji: '🎯',  number: '97%',   labelKey: 'stats.passRate'  },
   { emoji: '⏱️', number: '3000+', labelKey: 'stats.hours'     },

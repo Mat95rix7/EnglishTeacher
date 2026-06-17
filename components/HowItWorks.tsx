@@ -1,15 +1,15 @@
 'use client';
 
 import { CalendarCheck, Video, ClipboardList, TrendingUp } from 'lucide-react';
+import { SiZoom, SiWhatsapp, SiTelegram, SiFacebook, SiInstagram } from 'react-icons/si';
 import { useI18n } from '../lib/i18n';
 
 const platforms = [
-  { nameKey: 'Zoom',             emoji: '🎥', bg: 'bg-blue-50   border-blue-200   text-blue-700'     },
-  { nameKey: 'Google Meet',      emoji: '📹', bg: 'bg-green-50  border-green-200  text-green-700'    },
-  { nameKey: 'Skype',            emoji: '💻', bg: 'bg-cyan-50   border-cyan-200   text-cyan-700'     },
-  { nameKey: 'WhatsApp',         emoji: '📱', bg: 'bg-emerald-50 border-emerald-200 text-emerald-700'},
-  { nameKey: 'Google Classroom', emoji: '🏫', bg: 'bg-yellow-50 border-yellow-200 text-yellow-800'  },
-  { nameKey: 'Notion',           emoji: '📓', bg: 'bg-gray-50   border-gray-200   text-gray-700'    },
+  { name: 'Zoom',      Icon: SiZoom,      bg: 'bg-blue-50    border-blue-200',    color: '#2D8CFF' },
+  { name: 'WhatsApp',  Icon: SiWhatsapp,  bg: 'bg-emerald-50 border-emerald-200', color: '#25D366' },
+  { name: 'Telegram',  Icon: SiTelegram,  bg: 'bg-sky-50     border-sky-200',     color: '#26A5E4' },
+  { name: 'Facebook',  Icon: SiFacebook,  bg: 'bg-indigo-50  border-indigo-200',  color: '#1877F2' },
+  { name: 'Instagram', Icon: SiInstagram, bg: 'bg-pink-50    border-pink-200',    color: '#E4405F' },
 ];
 
 export default function HowItWorks() {
@@ -149,12 +149,13 @@ export default function HowItWorks() {
         </div>
         <div className="flex flex-wrap justify-center gap-3 mb-14">
           {platforms.map((p, i) => (
-            <div
+          <div
               key={i}
               className={`flex items-center gap-2 px-5 py-2.5 rounded-full border text-sm font-semibold hover:scale-105 transition-transform ${p.bg}`}
+              style={{ color: p.color }}
             >
-              <span>{p.emoji}</span>
-              {p.nameKey}
+              <p.Icon size={18} />
+              {p.name}
             </div>
           ))}
         </div>

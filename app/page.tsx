@@ -7,7 +7,6 @@ import About from '@/components/About';
 import Courses from '@/components/Courses';
 import HowItWorks from '@/components/HowItWorks';
 import Reviews from '@/components/Reviews';
-// import Pricing from '@/components/Pricing';
 import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';

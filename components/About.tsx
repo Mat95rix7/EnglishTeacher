@@ -9,7 +9,6 @@ export default function About() {
     { labelKey: 'about.skill1', level: 98 },
     { labelKey: 'about.skill2', level: 92 },
     { labelKey: 'about.skill3', level: 95 },
-    { labelKey: 'about.skill4', level: 90 },
   ];
 
   const badges = [
@@ -79,21 +78,21 @@ export default function About() {
             </div>
 
             <div
-              className="absolute top-4 -right-2 flex items-center gap-2 bg-linear-to-r from-[#8B5CF6] to-[#EC4899] text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg shadow-purple-300/40"
+              className="absolute top-4 -right-2 z-10 flex items-center gap-2 bg-linear-to-r from-[#8B5CF6] to-[#EC4899] text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg shadow-purple-300/40"
               style={{ animation: 'float-bg 3.5s ease-in-out 0s infinite alternate' }}
             >
               ⭐ {t('about.floatingRating')}
             </div>
 
             <div
-              className="absolute bottom-4 -left-2 bg-white/90 backdrop-blur-sm border border-[#EDE9FE] text-gray-700 text-xs font-semibold px-4 py-2 rounded-full shadow-md"
+              className="absolute bottom-4 -left-2 z-10 bg-white/90 backdrop-blur-sm border border-[#EDE9FE] text-gray-700 text-xs font-semibold px-4 py-2 rounded-full shadow-md"
               style={{ animation: 'float-bg 4s ease-in-out 1s infinite alternate' }}
             >
               🎓 {t('about.floatingOxford')}
             </div>
 
             <div
-              className="absolute top-1/2 -right-6 bg-[#EDE9FE] border border-[#C4B5FD]/50 text-[#7C3AED] text-xs font-bold px-3 py-2 rounded-full shadow-md"
+              className="absolute top-1/2 -right-6 z-10 bg-[#EDE9FE] border border-[#C4B5FD]/50 text-[#7C3AED] text-xs font-bold px-3 py-2 rounded-full shadow-md"
               style={{ animation: 'float-bg 4.8s ease-in-out 2s infinite alternate' }}
             >
               📹 {t('about.floatingZoom')}
