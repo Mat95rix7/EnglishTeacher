@@ -9,8 +9,8 @@ import { Translations } from "../types";
   'about.hi':             { en: "Hi, I'm",                               ar: 'مرحباً، أنا'                             },
   'about.name':           { en: 'Khawla',                                ar: 'خولة'                                    },
   'about.description1':   {
-    en: "I'm a passionate English teacher with over 10 years of experience teaching students from all over the world. I hold a Master's in English Linguistics from Oxford and am fully CELTA & DELTA certified.",
-    ar: 'أنا معلمة إنجليزية شغوفة بخبرة تزيد على 10 سنوات في تدريس الطلاب من جميع أنحاء العالم. أحمل ماجستيراً في اللغويات الإنجليزية من أكسفورد وحاصلة على شهادتي CELTA وDELTA.',
+    en: "I'm a passionate English teacher with over 10 years of experience teaching students from all over the world. I hold a Master's in English Linguistics from Mohamed Khider University Biskra and am fully CELTA & DELTA certified.",
+    ar: 'أنا معلمة إنجليزية شغوفة بخبرة تزيد على 10 سنوات في تدريس الطلاب من جميع أنحاء العالم. أحمل ماجستيراً في اللغويات الإنجليزية من جامعة محمد خيضر بسكرة وحاصلة على شهادتي CELTA وDELTA.',
   },
   'about.description2':   {
     en: 'My teaching philosophy? English should be fun, practical, and empowering. Through live Zoom sessions, interactive exercises and personalized feedback, I help my students go from hesitant speakers to confident communicators.',
