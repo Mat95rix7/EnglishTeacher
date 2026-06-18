@@ -13,8 +13,8 @@ export default function About() {
 
   const badges = [
     { icon: <GraduationCap size={20} />, labelKey: 'about.badge1' },
-    { icon: <Globe2 size={20} />,        labelKey: 'about.badge2' },
-    { icon: <Heart size={20} />,         labelKey: 'about.badge3' },
+    // { icon: <Globe2 size={20} />,        labelKey: 'about.badge2' },
+    // { icon: <Heart size={20} />,         labelKey: 'about.badge3' },
     { icon: <CheckCircle2 size={20} />,  labelKey: 'about.badge4' },
   ];
 

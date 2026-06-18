@@ -9,8 +9,8 @@ import { Translations } from "../types";
   'about.hi':             { en: "Hi, I'm",                               ar: 'مرحباً، أنا'                             },
   'about.name':           { en: 'Khawla',                                ar: 'خولة'                                    },
   'about.description1':   {
-    en: "I'm a passionate English teacher with over 10 years of experience teaching students from all over the world. I hold a Master's in English Linguistics from Mohamed Khider University Biskra and am fully CELTA & DELTA certified.",
-    ar: 'أنا معلمة إنجليزية شغوفة بخبرة تزيد على 10 سنوات في تدريس الطلاب من جميع أنحاء العالم. أحمل ماجستيراً في اللغويات الإنجليزية من جامعة محمد خيضر بسكرة وحاصلة على شهادتي CELTA وDELTA.',
+    en: "I'm a passionate English teacher with over 10 years of experience teaching students from all over the world. I hold a Master's in English Linguistics from Mohamed Khider University Biskra.",
+    ar: 'أنا معلمة إنجليزية شغوفة بخبرة تزيد على 10 سنوات في تدريس الطلاب من جميع أنحاء العالم. أحمل ماجستيراً في اللغويات الإنجليزية من جامعة محمد خيضر بسكرة.',
   },
   'about.description2':   {
     en: 'My teaching philosophy? English should be fun, practical, and empowering. Through live Zoom sessions, interactive exercises and personalized feedback, I help my students go from hesitant speakers to confident communicators.',
@@ -19,9 +19,7 @@ import { Translations } from "../types";
   'about.floatingRating': { en: '4.9/5 Rating',                          ar: '4.9/5 تقييم'                             },
   'about.floatingOxford': { en: 'Mohamed Khider University Biskra',                       ar: 'جامعة محمد خيضر بسكرة'                           },
   'about.floatingZoom':   { en: 'Live on Zoom',                          ar: 'مباشر على Zoom'                          },
-  'about.badge1':         { en: "MA in English Linguistics",    ar: 'ماجستير في اللغويات الإنجليزية' },
-  'about.badge2':         { en: 'CELTA & DELTA Certified Teacher',       ar: 'معلمة حاصلة على CELTA وDELTA'            },
-  'about.badge3':         { en: 'Taught in 30+ countries online',        ar: 'درّست في أكثر من 30 دولة عبر الإنترنت'   },
+  'about.badge1':         { en: "Master's in English Linguistics",    ar: 'ماستر في اللغويات الإنجليزية' },
   'about.badge4':         { en: 'Google Certified Educator',             ar: 'معلمة معتمدة من Google'                  },
   'about.skill1':         { en: 'Conversational English',                ar: 'الإنجليزية المحادثاتية'                   },
   'about.skill2':         { en: 'One to One English Course',                      ar: 'دورة الإنجليزية فردية'                         },

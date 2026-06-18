@@ -22,13 +22,13 @@ import { Translations } from "../types";
         },
         'hiw.step3.title':        { en: 'Learn Live via Zoom',             ar: 'تعلّم مباشرةً عبر Zoom' },
         'hiw.step3.desc':         {
-        en: 'Join interactive 1-on-1 or group lessons on Zoom, Google Meet, or Skype. Interactive whiteboards, screen sharing & recorded sessions included.',
-        ar: 'انضم إلى دروس تفاعلية فردية أو جماعية عبر Zoom أو Google Meet أو Skype. تشمل السبورات التفاعلية ومشاركة الشاشة والجلسات المسجلة.',
+        en: 'Join interactive 1-on-1 or group lessons on Zoom. Interactive whiteboards, screen sharing & recorded sessions included.',
+        ar: 'انضم إلى دروس تفاعلية فردية أو جماعية عبر Zoom. تشمل السبورات التفاعلية ومشاركة الشاشة والجلسات المسجلة.',
         },
         'hiw.step4.title':        { en: 'Track Your Progress',             ar: 'تابع تقدمك' },
         'hiw.step4.desc':         {
-        en: 'After each lesson you get detailed feedback, homework, and a progress report. Watch your English improve week by week — measurably and confidently.',
-        ar: 'بعد كل درس تحصل على تقييم مفصل وواجبات وتقرير تقدم. شاهد تحسن إنجليزيتك أسبوعاً بعد أسبوع — بشكل ملموس وواثق.',
+        en: 'Watch your English improve week by week — measurably and confidently.',
+        ar: ' شاهد تحسن إنجليزيتك أسبوعاً بعد أسبوع — بشكل ملموس وواثق.',
         },
 
         'hiw.platforms.title':    { en: 'Tools & Platforms I Use',         ar: 'الأدوات والمنصات التي أستخدمها' },

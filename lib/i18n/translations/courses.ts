@@ -73,10 +73,10 @@ import { Translations } from "../types";
     en: 'Personalized one-on-one coaching with a dedicated tutor, tailored to your pace and goals.',
     ar: 'مرافقة تعليمية فردية مع معلم مخصص، تتكيف مع وتيرتك وأهدافك.',
   },
-  'courses.soutienScolaire.title': { en: 'School Support', ar: 'الدعم الدراسي' },
+  'courses.soutienScolaire.title': { en: 'School Support', ar: 'الدعم المدرسي' },
   'courses.soutienScolaire.desc': {
-    en: 'Academic support to strengthen fundamentals, fill gaps, and progress confidently in your studies.',
-    ar: 'دعم تربوي لتقوية الأساسيات وتجاوز الثغرات والتقدم بثقة في المسار الدراسي.',
+    en: 'School support based on strengthening the school curriculum, learning, and progressing effectively.',
+    ar: 'دعم مدرسي يعتمد على تقوية البرنامج المدرسي والتعلم والتقدم بفعالية.',
   },
   'courses.discussion.title': { en: 'Conversation Practice', ar: 'محادثة باللغة الإنجليزية' },
   'courses.discussion.desc': {

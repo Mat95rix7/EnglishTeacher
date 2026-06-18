@@ -40,7 +40,6 @@ const BG_ELEMENTS = [
 ];
 
 const facts = [
-  { emoji: '🌍',  number: '45+',   labelKey: 'stats.countries' },
   { emoji: '📅',  number: '10',     labelKey: 'stats.years'     },
   { emoji: '👩‍🎓', number: '500+', labelKey: 'stats.students'  },
   { emoji: '🎯',  number: '97%',   labelKey: 'stats.passRate'  },
@@ -277,7 +276,7 @@ export default function Hero() {
                 </h2>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 {facts.map((fact, i) => (
                   <div
                     key={i}
