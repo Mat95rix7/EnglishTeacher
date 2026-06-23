@@ -4,7 +4,7 @@ import { Translations } from "../types";
   export const hiw: Translations = {
         'hiw.badge':              { en: 'How It Works',                    ar: 'كيف يعمل' },
         'hiw.title1':             { en: 'Start Learning in',               ar: 'ابدأ التعلم في' },
-        'hiw.titleHighlight':     { en: '4 Simple Steps',                  ar: '4 خطوات بسيطة' },
+        'hiw.titleHighlight':     { en: 'Simple Steps',                  ar: 'خطوات بسيطة' },
         'hiw.description':        {
         en: 'Getting started is easy. Your first lesson is just a few clicks away.',
         ar: 'البداية سهلة. درسك الأول على بُعد نقرات قليلة.',
@@ -35,8 +35,8 @@ import { Translations } from "../types";
         'hiw.platforms.sub':      { en: 'Everything you need, all in one learning experience', ar: 'كل ما تحتاجه في تجربة تعليمية واحدة' },
 
         'hiw.guarantee.title':    { en: '100% Satisfaction Guarantee',     ar: 'ضمان الرضا 100٪' },
-        'hiw.guarantee.desc':     {
-        en: "Not happy with your first paid lesson? I'll refund it — no questions asked. I'm that confident you'll love learning with me.",
-        ar: 'غير راضٍ عن أول درس مدفوع؟ سأعيد لك المبلغ — دون أي أسئلة. أنا واثق جداً أنك ستحب التعلم معي.',
-},
+        // 'hiw.guarantee.desc':     {
+        // en: "Not happy with your first paid lesson? I'll refund it — no questions asked. I'm that confident you'll love learning with me.",
+        // ar: 'غير راضٍ عن أول درس مدفوع؟ سأعيد لك المبلغ — دون أي أسئلة. أنا واثق جداً أنك ستحب التعلم معي.',
+// },
     };

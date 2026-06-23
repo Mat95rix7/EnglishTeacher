@@ -16,22 +16,22 @@ export default function HowItWorks() {
   const { t, dir } = useI18n();
 
   const steps = [
-    {
-      step: '01',
-      icon: <CalendarCheck size={28} />,
-      titleKey: 'hiw.step1.title',
-      descKey:  'hiw.step1.desc',
-      iconClass: 'from-amber-400 to-amber-600 shadow-amber-400/40',
-      delay: '0.05s',
-    },
-    {
-      step: '02',
-      icon: <ClipboardList size={28} />,
-      titleKey: 'hiw.step2.title',
-      descKey:  'hiw.step2.desc',
-      iconClass: 'from-blue-400 to-blue-600 shadow-blue-400/40',
-      delay: '0.15s',
-    },
+    // {
+    //   step: '01',
+    //   icon: <CalendarCheck size={28} />,
+    //   titleKey: 'hiw.step1.title',
+    //   descKey:  'hiw.step1.desc',
+    //   iconClass: 'from-amber-400 to-amber-600 shadow-amber-400/40',
+    //   delay: '0.05s',
+    // },
+    // {
+    //   step: '02',
+    //   icon: <ClipboardList size={28} />,
+    //   titleKey: 'hiw.step2.title',
+    //   descKey:  'hiw.step2.desc',
+    //   iconClass: 'from-blue-400 to-blue-600 shadow-blue-400/40',
+    //   delay: '0.15s',
+    // },
     {
       step: '03',
       icon: <Video size={28} />,
@@ -168,9 +168,9 @@ export default function HowItWorks() {
           >
             {t('hiw.guarantee.title')}
           </h3>
-          <p className="text-gray-500 max-w-md mx-auto text-sm leading-relaxed">
+          {/* <p className="text-gray-500 max-w-md mx-auto text-sm leading-relaxed">
             {t('hiw.guarantee.desc')}
-          </p>
+          </p> */}
         </div>
 
       </div>

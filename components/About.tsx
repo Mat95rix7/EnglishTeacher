@@ -15,7 +15,7 @@ export default function About() {
     { icon: <GraduationCap size={20} />, labelKey: 'about.badge1' },
     // { icon: <Globe2 size={20} />,        labelKey: 'about.badge2' },
     // { icon: <Heart size={20} />,         labelKey: 'about.badge3' },
-    { icon: <CheckCircle2 size={20} />,  labelKey: 'about.badge4' },
+    // { icon: <CheckCircle2 size={20} />,  labelKey: 'about.badge4' },
   ];
 
   return (
@@ -118,11 +118,11 @@ export default function About() {
             </p>
 
             {/* Credential badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+            <div className="grid grid-cols-1gap-3 mb-10">
               {badges.map((b, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-3 bg-white/70 backdrop-blur-sm border border-[#E9E1F8] rounded-xl p-3 hover:border-[#C4B5FD] hover:shadow-sm transition-all duration-300"
+                  className="flex items-center justify-center gap-3 bg-white/70 backdrop-blur-sm border border-[#E9E1F8] rounded-xl p-3 hover:border-[#C4B5FD] hover:shadow-sm transition-all duration-300"
                 >
                   <span className="text-[#8B5CF6] shrink-0">{b.icon}</span>
                   <span className="text-gray-600 text-sm">{t(b.labelKey)}</span>
