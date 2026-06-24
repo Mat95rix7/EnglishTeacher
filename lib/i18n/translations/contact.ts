@@ -26,8 +26,8 @@ export const contact: Translations = {
     ar: 'البريد الإلكتروني',
   },
   'contact.emailValue': {
-    en: 'khawla@englishsahla.com',
-    ar: 'khawla@englishsahla.com',
+    en: 'khawlanaadji1992@gmail.com',
+    ar: 'khawlanaadji1992@gmail.com',
   },
   'contact.emailSub': {
     en: 'For detailed questions',
@@ -56,8 +56,8 @@ export const contact: Translations = {
     ar: 'رد خلال 24 ساعة',
   },
   'contact.hoursSub': {
-    en: 'Saturday to Thursday',
-    ar: 'من السبت إلى الخميس',
+    en: 'Every day of the week',
+    ar: 'طوال أيام الأسبوع',
   },
 
   // ── Form ─────────────────────────────────────────────────────────────────

@@ -6,8 +6,8 @@ export const register: Translations = {
   'register.titleHighlight': { en: 'English', ar: 'إنجليزيتك' },
   'register.title2': { en: '?', ar: '؟' },
   'register.description': {
-    en: 'Sign up to receive your first free lesson and discover the method that has helped over 500 students reach their goals.',
-    ar: 'سجّل لتحصل على أول درس مجاني واكتشف الأسلوب الذي ساعد أكثر من 500 طالب في بلوغ أهدافهم.',
+    en: 'Sign up to discover the method that has helped over 500 students reach their goals.',
+    ar: 'سجّل لاكتشاف المنهج الذي ساعد أكثر من 500 طالب على تحقيق أهدافهم.',
   },
   'register.benefit1': { en: 'First trial lesson free', ar: 'أول درس تجريبي مجاناً' },
   'register.benefit2': { en: 'Program tailored to your level', ar: 'برنامج مكيّف حسب مستواك' },

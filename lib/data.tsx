@@ -1,7 +1,7 @@
 // src/config/contact.ts
 
 export const contact = {
-  email: 'contact@englishsahla.com',
+  email: 'khawlanaadji1992@gmail.com',
 
   phone: {
     raw: '+213668387385',   
