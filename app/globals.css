@@ -121,9 +121,16 @@ html[lang="ar"] .imperial-script-regular {
 }
 
 body {
-  background-color: #f7f3ed;
+  /* background-color: #f7f3ed; */
   color: #1e1a2e;
   overflow-x: hidden;
+  background-image: url("/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.9;
+  z-index: -1;
 }
 
 /* Scrollbar */

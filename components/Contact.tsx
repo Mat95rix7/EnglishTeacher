@@ -82,7 +82,7 @@ export default function Contact() {
     <section
       id="contact"
       dir={dir}
-      className="py-24 relative overflow-hidden bg-[#f7f3ed]"
+      className="py-24 relative overflow-hidden"
     >
       {/* Glows */}
       <div className="absolute -top-40 -left-40 w-[520px] h-[520px] rounded-full bg-[#C4B5FD]/18 blur-3xl pointer-events-none" />

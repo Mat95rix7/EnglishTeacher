@@ -41,7 +41,7 @@ export default function Courses() {
     <section
       id="courses"
       dir={dir}
-      className="relative py-24 overflow-hidden bg-[#f7f3ed]"
+      className="relative py-24 overflow-hidden"
     >
       {/* Dot grid */}
       <div

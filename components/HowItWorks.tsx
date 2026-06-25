@@ -54,7 +54,7 @@ export default function HowItWorks() {
     <section
       id="how-it-works"
       dir={dir}
-      className="relative py-24 overflow-hidden bg-[#f7f3ed]"
+      className="relative py-24 overflow-hidden"
     >
       {/* Dot grid */}
       <div

@@ -19,7 +19,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-[#f7f3ed]">
+    <section id="about" className="py-24 relative overflow-hidden">
 
       {/* Glows */}
       <div className="absolute top-0 left-0 w-[420px] h-[420px] rounded-full bg-[#C4B5FD]/18 blur-3xl pointer-events-none" />

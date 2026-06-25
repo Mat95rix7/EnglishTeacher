@@ -71,7 +71,7 @@ export default function Hero() {
         `}</style>
 
         {/* Fond beige */}
-        <div className="absolute inset-0 bg-[#f7f3ed]" />
+        <div className="absolute inset-0" />
 
         {/* Glows */}
         <div className="absolute -top-40 -left-40 w-[520px] h-[520px] rounded-full bg-[#C4B5FD]/20 blur-3xl pointer-events-none" />
@@ -264,7 +264,7 @@ export default function Hero() {
           {/* ══════════════════════════════
               STATS SECTION
           ══════════════════════════════ */}
-          <section className="relative overflow-hidden bg-[#f7f3ed]">
+          <section className="relative overflow-hidden">
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
 
               <div className="text-center mb-14">
