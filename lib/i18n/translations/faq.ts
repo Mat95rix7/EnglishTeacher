@@ -36,13 +36,13 @@ export const faq : Translations = {
     },
     'faq.5.q': { en: 'Do you teach children?',                  ar: 'هل تدرّسين الأطفال؟' },
     'faq.5.a': {
-    en: 'Yes! I teach learners aged 7 and above. Lessons for younger students are designed with more games, visuals, and engaging activities to keep them motivated and focused.',
-    ar: 'نعم! أدرّس المتعلمين من سن 7 سنوات فما فوق. الدروس للطلاب الصغار مصممة بألعاب ومرئيات وأنشطة جذابة لإبقائهم متحفزين ومركّزين.',
+    en: 'Yes! I teach learners aged 10 and above. Lessons for younger students are designed with more games, visuals, and engaging activities to keep them motivated and focused.',
+    ar: 'نعم! أدرّس المتعلمين من سن 10 سنوات فما فوق. الدروس للطلاب الصغار مصممة بألعاب ومرئيات وأنشطة جذابة لإبقائهم متحفزين ومركّزين.',
     },
     'faq.6.q': { en: 'What if I miss a lesson?',                ar: 'ماذا لو فاتني درس؟' },
     'faq.6.a': {
-    en: "Life happens! Please give me at least 24 hours’ notice and we’ll reschedule at no extra cost.Late cancellations (under 12 hours) may be charged. However, in case of genuine emergencies, I always stay flexible. If you can’t attend the session, you’ll also have access to the recorded video to watch it later..",
-    ar: 'االحياة مليئة بالمفاجآت! يُرجى إعلامي قبل 24 ساعة على الأقل لإعادة جدولة الحصة دون أي رسوم إضافية. قد يتم فرض رسوم على الإلغاءات المتأخرة (أقل من 12 ساعة)، ومع ذلك فأنا دائمًا متفهمة ومرنة في حالات الطوارئ الحقيقية. وفي حال عدم تمكنك من الحضور، يمكنك مشاهدة الحصة لاحقًا عبر الفيديو المسجّل.',
+    en: "Life happens! If you can't make it to a session, you can watch it later via the recorded video.",
+    ar: 'االحياة مليئة بالمفاجآت! في حال عدم تمكنك من الحضور، يمكنك مشاهدة الحصة لاحقًا عبر الفيديو المسجّل.',
     },
     'faq.7.q': { en: 'Can I switch courses or goals mid-way?',  ar: 'هل يمكنني تغيير الدورة أو الأهداف في المنتصف؟' },
     'faq.7.a': {
@@ -51,8 +51,8 @@ export const faq : Translations = {
     },
     'faq.8.q': { en: 'Do you offer group classes?',             ar: 'هل تقدمين دروساً جماعية؟' },
     'faq.8.a': {
-    en: 'Yes! Small group lessons (2–5 students) are available at a discounted rate. Group lessons are great for practicing conversation and enjoying a more social learning experience. Groups are organized by level, and you can choose between conversation-focused classes or academic support lessons, depending on your needs.',
-    ar: 'نعم! الدروس الجماعية الصغيرة (2–5 طلاب) متاحة بسعر مخفّض. الدروس الجماعية رائعة للتدرّب على المحادثة وتوفير تجربة تعليمية أكثر تفاعلية واجتماعية. يتم تقسيم المجموعات حسب المستوى، كما تتوفر دروس محادثة ودروس دعم مدرسي حسب اختيارك واحتياجاتك.',
+    en: 'Yes! group lessons are available at a discounted rate. Group lessons are great for practicing conversation and enjoying a more social learning experience. Groups are organized by level, and you can choose between conversation-focused classes or academic support lessons, depending on your needs.',
+    ar: 'نعم! الدروس الجماعية متاحة بسعر مخفّض. الدروس الجماعية رائعة للتدرّب على المحادثة وتوفير تجربة تعليمية أكثر تفاعلية واجتماعية. يتم تقسيم المجموعات حسب المستوى، كما تتوفر دروس محادثة ودروس دعم مدرسي حسب اختيارك واحتياجاتك.',
     },
 
 };

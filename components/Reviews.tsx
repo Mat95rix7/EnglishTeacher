@@ -138,7 +138,7 @@ export default function Reviews() {
               <div className="w-10 h-10 rounded-full border-4 border-[#C4B5FD]/40 border-t-[#8B5CF6] animate-spin" />
             </div>
           ) : reviews.length === 0 ? (
-            <p className="text-center text-gray-400 text-sm py-10">
+            <p className="text-center text-gray-800 text-lg py-10">
               {t('reviews.noReviews')}
             </p>
           ) : (

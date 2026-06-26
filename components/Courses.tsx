@@ -10,7 +10,7 @@ const courseKeys = [
     descKey:  'courses.oneToOne.desc',
     levelKey: 'courses.levelOneToOne',
     duration: '4', lessons: 8,
-    thumbnail: '/oneToOne.jpeg',
+    thumbnail: '/OneToOne.jpeg',
     color: 'from-sky-400 to-blue-500',
     badge: 'bg-sky-50 border-sky-200 text-sky-700',
   },

@@ -9,7 +9,7 @@ export const reviews: Translations = {
         'reviews.featured.text':      {
         },
 
-        'reviews.noreviews':          { en: 'No reviews yet. Be the first one!',                      ar: 'لا توجد آراء حتى الآن. كن أول من يشارك رأيه!' },
+        'reviews.noReviews':          { en: 'No reviews yet. Be the first one!',                      ar: 'لا توجد آراء حتى الآن. كن أول من يشارك رأيه!' },
 
         // Add review form
         'reviews.add.cta':            { en: 'Share Your Experience',               ar: 'شارك تجربتك' },
