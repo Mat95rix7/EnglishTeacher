@@ -36,8 +36,8 @@ export const faq : Translations = {
     },
     'faq.5.q': { en: 'Do you teach children?',                  ar: 'هل تدرّسين الأطفال؟' },
     'faq.5.a': {
-    en: 'Yes! I teach learners aged 10 and above. Lessons for younger students are designed with more games, visuals, and engaging activities to keep them motivated and focused.',
-    ar: 'نعم! أدرّس المتعلمين من سن 10 سنوات فما فوق. الدروس للطلاب الصغار مصممة بألعاب ومرئيات وأنشطة جذابة لإبقائهم متحفزين ومركّزين.',
+    en: 'Yes! I teach learners aged 7 and above. Lessons for younger students are designed with more games, visuals, and engaging activities to keep them motivated and focused.',
+    ar: 'نعم! أدرّس المتعلمين من سن 7 سنوات فما فوق. الدروس للطلاب الصغار مصممة بألعاب ومرئيات وأنشطة جذابة لإبقائهم متحفزين ومركّزين.',
     },
     'faq.6.q': { en: 'What if I miss a lesson?',                ar: 'ماذا لو فاتني درس؟' },
     'faq.6.a': {
