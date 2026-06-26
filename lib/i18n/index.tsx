@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, ReactNode, useCallback, useContext, useState } from "react";
+import { createContext, ReactNode, useCallback, useContext, useEffect, useState } from "react";
 import { Lang, Translations, I18nContextType } from "./types";
 
 import { about } from "./translations/about";
@@ -34,17 +34,33 @@ export const translations: Translations = {
 const I18nContext = createContext<I18nContextType | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>('en');
+  const [lang, setLang] = useState<Lang>('ar');
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem('app_lang') as Lang;
+    if (savedLang) {
+      setLang(savedLang);
+    }
+  }, []);
 
   const toggleLang = useCallback(() => {
-    setLang((prev) => (prev === 'en' ? 'ar' : 'en'));
+    setLang((prev) => {
+      const newLang = prev === 'en' ? 'ar' : 'en';
+      localStorage.setItem('app_lang', newLang);
+      return newLang;
+    });
+  }, []);
+
+  const setLanguage = useCallback((newLang: Lang) => {
+    setLang(newLang);
+    localStorage.setItem('app_lang', newLang);
   }, []);
 
   const t = useCallback(
     (key: string): string => {
       const entry = translations[key];
       if (!entry) return key;
-      return entry[lang] || entry['en'] || key;
+      return entry[lang] || entry['ar'] || key;
     },
     [lang]
   );
@@ -52,7 +68,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const dir = lang === 'ar' ? 'rtl' : 'ltr';
 
   return (
-    <I18nContext.Provider value={{ lang, toggleLang, t, dir }}>
+    <I18nContext.Provider value={{ lang, toggleLang, t, dir, setLanguage }}>
       {children}
     </I18nContext.Provider>
   );

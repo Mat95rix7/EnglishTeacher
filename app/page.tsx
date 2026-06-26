@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useI18n } from '../lib/i18n';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -11,11 +12,37 @@ import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Register from '@/components/Register';
+import LanguageModal from '@/components/LanguageModal'; // AJOUT : Import du nouveau composant
 
 export default function App() {
   const { dir } = useI18n();
+  const [showModal, setShowModal] = useState(false);
+  const [isChecking, setIsChecking] = useState(true);
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem('app_lang');
+    if (!savedLang) {
+      setShowModal(true);
+    } else {
+      setShowModal(false);
+    }
+    setIsChecking(false);
+  }, []);
+
+  if (isChecking) {
+    return <div className="min-h-screen bg-pattern"></div>;
+  }
+
   return (
     <div className="min-h-screen bg-pattern" dir={dir}>
+      
+      {/* AJOUT : Le composant modal externalisé */}
+      <LanguageModal 
+        isOpen={showModal} 
+        onClose={() => setShowModal(false)} 
+      />
+
+      {/* Si showModal est vrai, le reste du site est là mais caché sous le modal (grâce au CSS absolute/fixed du modal) */}
       <Navbar />
       <Hero />
       <Courses />
