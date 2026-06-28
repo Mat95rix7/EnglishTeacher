@@ -11,7 +11,7 @@ import { saveRegistration } from '@/services/registrationService';
 
 
 const BENEFITS = [
-  'register.benefit1',
+  // 'register.benefit1',
   'register.benefit2',
   'register.benefit3',
   'register.benefit4',
@@ -166,7 +166,7 @@ export default function Register() {
         </div>
 
         {/* ── Benefits 2 colonnes ── */}
-        <div className="grid sm:grid-cols-2 gap-3 mb-10">
+        <div className="grid md:grid-cols-3 gap-3 mb-10">
           {BENEFITS.map((key) => (
             <div
               key={key}
