@@ -33,7 +33,7 @@ export default function HowItWorks() {
     //   delay: '0.15s',
     // },
     {
-      step: '03',
+      step: '01',
       icon: <Video size={28} />,
       titleKey: 'hiw.step3.title',
       descKey:  'hiw.step3.desc',
@@ -41,7 +41,7 @@ export default function HowItWorks() {
       delay: '0.25s',
     },
     {
-      step: '04',
+      step: '02',
       icon: <TrendingUp size={28} />,
       titleKey: 'hiw.step4.title',
       descKey:  'hiw.step4.desc',
